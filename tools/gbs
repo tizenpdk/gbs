@@ -166,6 +166,126 @@ class Gbs(cmdln.Cmdln):
         from gitbuildsys import cmd_export as cmd
         cmd.do(opts, args)
 
+    @cmdln.option('-D', '--dist',
+                  default=None,
+                  dest='dist',
+                  help='specify distribution configuration file, which should ' \
+                       'be a full path')
+    @cmdln.option('-R', '--repository',
+                  action="callback",
+                  default=None,
+                  type='string',
+                  dest='repositories',
+                  callback=handle_repository,
+                  help='specify package repositories, only rpm-md format ' \
+                       'is supported')
+    @cmdln.option('-B', '--buildroot',
+                  default=None,
+                  dest='buildroot',
+                  help='specify build root to setup chroot environment')
+    @cmdln.option('-A', '--arch',
+                  default=None,
+                  dest='arch',
+                  help='build target arch ')
+    @cmdln.option('-C', '--clean',
+                  action='store_true',
+                  default=False,
+                  dest='clean',
+                  help='delete old build root before initialization')
+    @cmdln.option('--noinit',
+                  action='store_true',
+                  default=False,
+                  dest='noinit',
+                  help='skip initialization of build root and start ' \
+                       'with build immediately')
+    @cmdln.option('--ccache',
+                  action="store_true",
+                  default=False,
+                  dest='ccache',
+                  help='use ccache to speed up rebuilds')
+    @cmdln.option('--skip-conf-repos',
+                  action="store_true",
+                  default=False,
+                  dest='skip_conf_repos',
+                  help='skip repositories mentioned in config file')
+    @cmdln.option('-c', '--commit',
+                  default=None,
+                  dest='commit',
+                  help='specify a commit ID to build')
+    @cmdln.option('--spec',
+                  default=None,
+                  dest='spec',
+                  help='specify a spec file to use')
+    @cmdln.option('--extra-packs',
+                  default=None,
+                  dest='extra_packs',
+                  help='specify extra packages to install to build root '\
+                       'multiple packages can be separated by comma')
+    @cmdln.option('--include-all',
+                  action='store_true',
+                  default=False,
+                  dest='include_all',
+                  help='uncommitted changes and untracked files would be '\
+                       'included while generating tar ball')
+    @cmdln.option('--out',
+                  default=None,
+                  dest='out',
+                  help='output directory for RPMs')
+
+    # depanneur special options
+    @cmdln.option('--clean-once',
+                  action='store_true',
+                  default=False,
+                  dest='clean_once',
+                  help='clean the build environment only once when you start '\
+                       'building multiple packages, after that use existing '\
+                       'environment for all packages.')
+    @cmdln.option('--overwrite',
+                  action='store_true',
+                  default=False,
+                  dest='overwrite',
+                  help='Overwrite existing binaries')
+    @cmdln.option('--incremental',
+                  action='store_true',
+                  default=False,
+                  dest='incremental',
+                  help='Build a package from the local git tree incremental.')
+    @cmdln.option('--debug',
+                  action='store_true',
+                  default=False,
+                  dest='debug',
+                  help='Debug output')
+    @cmdln.option('--threads',
+                  default=1,
+                  dest='threads',
+                  help='number of threads to build package in parallel')
+
+    def do_localbuild(self, _subcmd, opts, *args):
+        """${cmd_name}: local build package
+
+        Usage:
+            gbs build -R repository -A ARCH [options] [package git dir]
+
+            [package git dir] is optional, if not specified, current dir would
+            be used.
+
+        Examples:
+            gbs localbuild -R http://example1.org/packages/ \\
+                           -R http://example2.org/packages/ \\
+                           -A i586                          \\
+                           -D /usr/share/gbs/tizen-1.0.conf
+
+        Note:
+
+        If -D not specified, distconf key in ~/.gbs.conf would be used.
+        If distconf key is None, dist conf file would be got from OBS
+        project (Tizen:Main by default).
+
+        ${cmd_option_list}
+        """
+
+        from gitbuildsys import cmd_localbuild as cmd
+        cmd.do(opts, args)
     @cmdln.alias('lb')
     @cmdln.option('-D', '--dist',
                   default=None,
