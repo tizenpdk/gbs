@@ -1,3 +1,9 @@
+gbs (0.14.1-0.rc1) unstable; urgency=high
+  * upgrade to gbs v0.14.1, which contains the following bug fixing & features:
+     * depend on new librpm-tizen to fix spec parser issue
+
+ -- Qiang Zhang <qiang.z.zhang@intel.com>  Mon, 11 Mar 2013 10:56:15 +0800
+
 gbs (0.14-1) unstable; urgency=high
   * upgrade to gbs v0.14, which contains the following bug fixing & features:
     * Add --binary-from-file option to specify a package list file
