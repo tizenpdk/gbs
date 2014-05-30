@@ -1,3 +1,15 @@
+gbs (0.22.1) unstable; urgency=low
+
+  * export: disable desktop notifications (Closes: DEVT-178)
+  * export: change VCS tag in spec to sha1 of commitish.
+    Do not resolve to the sha1 of the commit object anymore. That is, the
+    VCS tag will contain the sha1 of the tag object if an (annotated) tag is
+    exported (previously, it would contain the sha1 of the commit the tag,
+    or the chain of tags, pointed to) (previously, it would contain the sha1
+    of the commit the tag, or the chain of tags, pointed to).
+
+ -- Markus Lehtonen <markus.lehtonen@linux.intel.com>  Mon, 02 Jun 2014 12:13:21 +0300
+
 gbs (0.22) unstable; urgency=high
   * upgrade to gbs v0.22, which contains the following bug fixing & features:
     * orphan-packaging development model (experimental)

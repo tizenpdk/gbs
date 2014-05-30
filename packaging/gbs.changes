@@ -1,3 +1,12 @@
+* Mon Jun 02 2014 Markus Lehtonen <markus.lehtonen@linux.intel.com> 0.22.1
+- export: disable desktop notifications (Closes: DEVT-178)
+- export: change VCS tag in spec to sha1 of commitish
+  Do not resolve to the sha1 of the commit object anymore. That is, the
+  VCS tag will contain the sha1 of the tag object if an (annotated) tag is
+  exported (previously, it would contain the sha1 of the commit the tag,
+  or the chain of tags, pointed to) (previously, it would contain the sha1
+  of the commit the tag, or the chain of tags, pointed to).
+
 * Wed May 21 2014 Zhang Qiang <qiang.z.zhang@intel.com> 0.22
   * orphan-packaging development model (experimental)
     - implement 'devel' subcommand for  orphan-packaging development model
