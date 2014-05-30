@@ -130,6 +130,7 @@ def create_gbp_export_args(repo, commit, export_dir, tmp_dir, spec, args,
     export_rev = commit
     argv = ["argv[0] placeholder",
             "--git-color-scheme=magenta:green:yellow:red",
+            "--git-notify=off",
             "--git-ignore-new",
             "--git-compression-level=6",
             "--git-export-dir=%s" % export_dir,
