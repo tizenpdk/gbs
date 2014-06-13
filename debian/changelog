@@ -1,3 +1,11 @@
+gbs (0.22.1) unstable; urgency=high
+  * upgrade to gbs v0.22.1, which contains the following bug fixing & features:
+    * export: disable desktop notifications to fix backtrace issue
+    * export: change VCS tag in spec to sha1 of commitish
+    * build: ignore OS/ABI field in ELF header for aarch64
+
+ -- Qiang Zhang <qiang.z.zhang@intel.com>  Fri, 13 Jun 2014 10:56:15 +0800
+
 gbs (0.22) unstable; urgency=high
   * upgrade to gbs v0.22, which contains the following bug fixing & features:
     * orphan-packaging development model (experimental)
