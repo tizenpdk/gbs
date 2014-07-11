@@ -23,6 +23,9 @@ import threading
 import gbp.log
 from gbp.log import DEBUG, INFO, WARNING, ERROR
 
+# Disable Instance of 'RootLogger' has no '...' member
+#   pylint: disable=E1103
+
 def waiting(func):
     """
     Function decorator to show simple waiting message for long time operations.
