@@ -76,6 +76,8 @@ def setup(verbose, debug=False):
     else:
         log_fmt = '%(color)s%(levelname)s: %(coloroff)s%(message)s'
     LOGGER.set_format(log_fmt)
+    if hasattr(gbp.log, 'initialize'):
+        gbp.log.initialize()
     gbp.log.LOGGER.set_format(log_fmt)
 
     # Set output colors
