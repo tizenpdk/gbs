@@ -225,6 +225,8 @@ def build_parser(parser):
                         help='working in offline mode. Start building directly')
     group.add_argument('--ccache', action="store_true",
                         help='use ccache to speed up rebuilds')
+    group.add_argument('--icecream', type=int, default=0,
+                        help='Use N parallel build jobs with icecream')
     group.add_argument('--threads', type=int, default=1,
                         help='number of threads to build multiple packages '
                         'in parallel')
