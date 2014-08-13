@@ -62,7 +62,6 @@ Description: GBS remotebuild API
 Package: gbs-jenkins-jobs
 Architecture: all
 Depends: ${misc:Depends},
- jenkins
 Description: GBS local full build jenkins jobs configurations.
  These jenkins jobs are used to build tizen source from scratch or only a part of packages, and create images finally.
 
