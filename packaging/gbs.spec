@@ -26,9 +26,6 @@ Requires:   depanneur >= 0.13.1
 %if "%{?python_version}" < "2.7"
 Requires:   python-argparse
 %endif
-%if ! 0%{?tizen_version:1}
-Requires:   rpm-tizen >= 4.11.0.1.tizen20130618-tizen20131001
-%endif
 Requires:   %{name}-api = %{version}-%{release}
 Requires:   %{name}-export = %{version}-%{release}
 Requires:   %{name}-remotebuild = %{version}-%{release}
@@ -59,6 +56,9 @@ Requires:      python
 Requires:      tizen-pristine-tar >= 20131205
 Requires:      gbs-api = %{version}-%{release}
 Requires:      git-buildpackage-rpm
+%if ! 0%{?tizen_version:1}
+Requires:   rpm-tizen >= 4.11.0.1.tizen20130618-tizen20131001
+%endif
 
 %description export
 This package contains gbs export APIs, which can be used by
