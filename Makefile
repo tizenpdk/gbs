@@ -32,13 +32,13 @@ dist-gz: dist-common
 	rm -rf $(PKGNAME)-$(TAGVER)
 
 man:
-	rst2man docs/GBS.rst >docs/gbs.1
+	echo rst2man docs/GBS.rst >docs/gbs.1
 
 html:
-	rst2html docs/GBS.rst >docs/gbs.html
+	echo rst2html docs/GBS.rst >docs/gbs.html
 
 pdf:
-	rst2pdf docs/GBS.rst -o docs/gbs.pdf
+	echo rst2pdf docs/GBS.rst -o docs/gbs.pdf
 
 docs: man html pdf
 

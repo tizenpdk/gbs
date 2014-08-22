@@ -7,9 +7,9 @@ Name:       gbs
 Summary:    The command line tools for Tizen package developers
 Version:    0.22
 %if 0%{?opensuse_bs}
-Release:    1.<CI_CNT>.<B_CNT>
+Release:    0
 %else
-Release:    1
+Release:    0
 %endif
 Group:      Development/Tools
 License:    GPLv2
@@ -33,8 +33,7 @@ Requires:   %{name}-api = %{version}-%{release}
 Requires:   %{name}-export = %{version}-%{release}
 Requires:   %{name}-remotebuild = %{version}-%{release}
 
-BuildRequires:  python-docutils
-BuildRoot:  %{_tmppath}/%{name}-%{version}-build
+BuildRequires:  python
 
 %description
 The command line tools for Tizen package developers will
