@@ -1,7 +1,6 @@
-gbs (0.22.2) unstable; urgency=high
+gbs (0.22.3) unstable; urgency=high
   * upgrade to gbs v0.22.2, which contains the following bug fixing & features:
     * export: disable desktop notifications to fix backtrace issue
-    * export: change VCS tag in spec to sha1 of commitish
     * build: ignore OS/ABI field in ELF header for aarch64
     * build: fix arm build error with parallel build
 

@@ -1,6 +1,5 @@
-* Fri Aug 15 2014 Li Jinjing <jinjingx.li@intel.com> 0.22.2
+* Fri Aug 15 2014 Li Jinjing <jinjingx.li@intel.com> 0.22.3
   * export: disable desktop notifications to fix backtrace issue
-  * export: change VCS tag in spec to sha1 of commitish
   * build: ignore OS/ABI field in ELF header for aarch64
   * build: fix arm build error with parallel build
 

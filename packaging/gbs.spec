@@ -5,7 +5,7 @@
 
 Name:       gbs
 Summary:    The command line tools for Tizen package developers
-Version:    0.22.2
+Version:    0.22.3
 %if 0%{?opensuse_bs}
 Release:    1.<CI_CNT>.<B_CNT>
 %else

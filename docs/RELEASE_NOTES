@@ -1,11 +1,10 @@
-Release notes for gbs 0.22.2
+Release notes for gbs 0.22.3
 ============================
 
-- Release Date: 2014-08
+- Release Date: 2014-09
 
 - New feature and enhancements added:
     * export: disable desktop notifications to fix backtrace issue
-    * export: change VCS tag in spec to sha1 of commitish
     * build: ignore OS/ABI field in ELF header for aarch64
     * build: fix arm build error with parallel build
 
