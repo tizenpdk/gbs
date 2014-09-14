@@ -54,6 +54,7 @@ def main(args):
               "--packaging-dir=%s" % get_packaging_dir(args),
               "--upstream-branch=%s" % upstream_branch, path,
               "--upstream-tag=%s" % upstream_tag,
+              "--filter=%s" % get_packaging_dir(args),
               "--tmp-dir=%s" % tmp.path,
               ]
     if args.debug:
