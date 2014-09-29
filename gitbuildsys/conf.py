@@ -183,6 +183,7 @@ class ConfigMgr(object):
                 'buildroot':    '~/GBS-ROOT/',
                 'packaging_dir': 'packaging',
                 'work_dir': '.',
+                'fallback_to_native': '',
             },
             'orphan-devel': {
                 'packaging_branch': '',

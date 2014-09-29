@@ -49,6 +49,14 @@ def mkdir_p(path):
         else:
             raise GbsError('failed to create %s: %s' % (path, exc.strerror))
 
+def config_is_true(config_value):
+    """Return if a config value is true"""
+    if isinstance(config_value, bool):
+        return config_value
+    if config_value.lower() in ['yes', 'on', '1', 'true', 'enabled']:
+        return True
+    return False
+
 def is_native_pkg(repo, args):
     """
     Determine if the package is "native"
@@ -208,8 +216,7 @@ def export_sources(repo, commit, export_dir, spec, args, create_tarball=True):
     try:
         ret = gbp_build(gbp_args)
         if ret == 2 and not is_native_pkg(repo, args):
-            # Try falling back to old logic of one monolithic tarball
-            log.error("Generating upstream tarball and/or generating patches "
+            errmsg = ("Generating upstream tarball and/or generating patches "
                       "failed. GBS tried this as you have upstream branch in "
                       "you git tree. Fix the problem by either:\n"
                       "  1. Update your upstream branch and/or fix the spec "
@@ -218,6 +225,19 @@ def export_sources(repo, commit, export_dir, spec, args, create_tarball=True):
                       "package to native)\n"
                       "See https://source.tizen.org/documentation/reference/"
                       "git-build-system/upstream-package for more details.")
+            fallback = configmgr.get_arg_conf(args, 'fallback_to_native')
+            if config_is_true(fallback):
+                # Try falling back to old logic of one monolithic tarball
+                log.warn(errmsg)
+                log.info("Falling back to native, i.e. creating source archive "
+                         "directly from exported commit, without any patches.")
+                gbp_args = create_gbp_export_args(repo, commit, export_dir,
+                                                  tmp.path, spec, args,
+                                                  force_native=True,
+                                                  create_tarball=create_tarball)
+                ret = gbp_build(gbp_args)
+            else:
+                log.error(errmsg)
         if ret:
             raise GbsError("Failed to export packaging files from git tree")
     except GitRepositoryError, excobj:
