@@ -107,6 +107,12 @@ def export_parser(parser):
     parser.add_argument('--include-all', action='store_true',
                         help='uncommitted changes and untracked files '
                         'would be included while generating tar ball')
+    parser.add_argument('--fallback-to-native', action='store_true',
+                        default=None,
+                        help='Fall back to native packaging mode (i.e. create '
+                        'tarball directly from exported commit, not from '
+                        'upstream tag, and without patches) in case patch '
+                        'or upstream tarball generation fails.')
     parser.add_argument('--source-rpm', action='store_true',
                         help='generate source rpm')
     parser.add_argument('--no-patch-export', action='store_true',
@@ -239,6 +245,12 @@ def build_parser(parser):
                         help="upstream tag format, '${upstreamversion}' is "
                         "expanded to the version in the spec file. "
                         "E.g. 'v${upstreamversion}'")
+    group.add_argument('--fallback-to-native', action='store_true',
+                       default=None,
+                       help='Fall back to native packaging mode (i.e. create '
+                       'tarball directly from exported commit, not from '
+                       'upstream tag, and without patches) in case patch '
+                       'or upstream tarball generation fails.')
     group.add_argument('--squash-patches-until',
                         help='when generating patches, squash patches up '
                         'to given commit-ish into one monolithic diff file. '
@@ -349,6 +361,12 @@ def remotebuild_parser(parser):
     parser.add_argument('--include-all', action='store_true',
                         help='uncommitted changes and untracked files will be '
                         'included while generating tar ball')
+    parser.add_argument('--fallback-to-native', action='store_true',
+                        default=None,
+                        help='Fall back to native packaging mode (i.e. create '
+                        'tarball directly from exported commit, not from '
+                        'upstream tag, and without patches) in case patch '
+                        'or upstream tarball generation fails.')
     parser.add_argument('--upstream-branch', help='upstream branch')
     parser.add_argument('--upstream-tag',
                         help="upstream tag format, '${upstreamversion}' is "

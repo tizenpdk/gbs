@@ -355,6 +355,8 @@ def main(args):
         cmd += ['--upstream-branch=%s' % args.upstream_branch]
     if args.upstream_tag:
         cmd += ['--upstream-tag=%s' % args.upstream_tag]
+    if args.fallback_to_native:
+        cmd += ['--fallback-to-native']
     if args.squash_patches_until:
         cmd += ['--squash-patches-until=%s' % args.squash_patches_until]
     if args.no_patch_export:
