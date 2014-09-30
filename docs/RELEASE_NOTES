@@ -1,3 +1,16 @@
+Release notes for gbs 0.22.4
+============================
+
+- Release Date: 2014-10
+
+- New feature and enhancements added:
+    * export: support --fallback-to-native to fall back to native packaging mode
+              if export fails in non-native mode
+    * build: support --fallback-to-native option of gbs
+    * build: fix build --include-all on development branch(orphan-packaging
+            mode)
+    * fix dependency issue on gbs repository for fedora
+
 Release notes for gbs 0.22.3
 ============================
 

@@ -1,5 +1,16 @@
+gbs (0.22.4) unstable; urgency=high
+  * upgrade to gbs v0.22.4, which contains the following bug fixing & features:
+    * export: support --fallback-to-native to fall back to native packaging mode
+              if export fails in non-native mode
+    * build: support --fallback-to-native option of gbs
+    * build: fix build --include-all on development branch(orphan-packaging
+            mode)
+    * fix dependency issue on gbs repository for fedora
+
+ -- Li Jinjing <jinjinx.li@intel.com>  Thu, 09 Oct 2014 10:56:15 +0800
+
 gbs (0.22.3) unstable; urgency=high
-  * upgrade to gbs v0.22.2, which contains the following bug fixing & features:
+  * upgrade to gbs v0.22.3, which contains the following bug fixing & features:
     * export: disable desktop notifications to fix backtrace issue
     * build: ignore OS/ABI field in ELF header for aarch64
     * build: fix arm build error with parallel build

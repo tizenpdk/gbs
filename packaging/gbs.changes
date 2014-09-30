@@ -1,3 +1,10 @@
+* Thu Oct 09 2014 Li Jinjing <jinjingx.li@intel.com> 0.22.4
+  * export: support --fallback-to-native to fall back to native packaging mode
+              if export fails in non-native mode
+  * build: support --fallback-to-native option of gbs
+  * build: fix build --include-all on development branch(orphan-packagin mode)
+  * fix dependency issue on gbs repository for fedora
+
 * Fri Aug 15 2014 Li Jinjing <jinjingx.li@intel.com> 0.22.3
   * export: disable desktop notifications to fix backtrace issue
   * build: ignore OS/ABI field in ELF header for aarch64
