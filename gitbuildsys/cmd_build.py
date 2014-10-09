@@ -237,6 +237,10 @@ def prepare_depanneur_opts(args):
         cmd_opts += ['--deps']
     if args.rdeps:
         cmd_opts += ['--rdeps']
+
+    if args.icecream > 0:
+        cmd_opts += ['--icecream=%s' % args.icecream]
+
     cmd_opts += ['--threads=%s' % args.threads]
     cmd_opts += ['--packaging-dir=%s' % get_packaging_dir(args)]
 
