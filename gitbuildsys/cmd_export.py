@@ -212,7 +212,8 @@ def export_sources(repo, commit, export_dir, spec, args, create_tarball=True):
                             directory=True)
 
     gbp_args = create_gbp_export_args(repo, commit, export_dir, tmp.path,
-                                      spec, args, create_tarball=create_tarball)
+                                      spec, args, force_native=False,
+                                      create_tarball=create_tarball)
     try:
         ret = gbp_build(gbp_args)
         if ret == 2 and not is_native_pkg(repo, args):
