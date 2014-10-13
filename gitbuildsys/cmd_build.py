@@ -213,8 +213,8 @@ def prepare_depanneur_opts(args):
         cmd_opts += ['--keep-packs']
     if args.baselibs:
         cmd_opts += ['--baselibs']
-    if args.no_source_rpm:
-        cmd_opts += ['--no-source-rpm']
+    if args.skip_srcrpm:
+        cmd_opts += ['--skip-srcrpm']
     #
     if args.package_list:
         package_list = args.package_list.split(',')

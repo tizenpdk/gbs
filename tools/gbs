@@ -230,7 +230,7 @@ def build_parser(parser):
     group.add_argument('--threads', type=int, default=1,
                         help='number of threads to build multiple packages '
                         'in parallel')
-    group.add_argument('--no-source-rpm', action='store_true',
+    group.add_argument('--skip-srcrpm', action='store_true',
                         help='don\'t build source rpm file')
 
 
