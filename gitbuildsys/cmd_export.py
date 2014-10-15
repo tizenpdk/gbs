@@ -61,6 +61,10 @@ def is_native_pkg(repo, args):
     """
     Determine if the package is "native"
     """
+    forced = configmgr.get_optional_item('general', 'native')
+    if forced is not None:
+        return config_is_true(forced)
+
     upstream_branch = configmgr.get_arg_conf(args, 'upstream_branch')
     return not repo.has_branch(upstream_branch)
 
@@ -157,9 +161,9 @@ def create_gbp_export_args(repo, commit, export_dir, tmp_dir, spec, args,
     if args.debug:
         argv.append("--git-verbose")
     if force_native or is_native_pkg(repo, args) or args.no_patch_export:
-        argv.extend(["--git-no-patch-export",
-                     "--git-upstream-tree=%s" % commit])
+        argv.append('--git-native=on')
     else:
+        argv.append('--git-native=off')
         # Check if the revision seems to be of an orphan development branch
         is_orphan = False
         export_commitish = 'HEAD' if commit == 'WC.UNTRACKED' else commit
