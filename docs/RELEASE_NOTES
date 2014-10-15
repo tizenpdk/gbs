@@ -1,3 +1,27 @@
+Release notes for gbs 0.23
+==========================
+
+- Release Date: 2014-10
+
+- New feature and enhancements added:
+    * export: support --fallback-to-native command line option to force gbs to
+              export non-native packages in native packaging mode
+    * export: support native config option by setting default value(yes, true,
+              1, enabled, on) in .gbs.conf config file to enable native
+              packaging mode in git tree
+    * build: support no source rpm building with --skip-srcrpm option
+    * build: add new arch mips and mipsel to support MIPS architecture and
+             toolchains
+    * build: support for distributed compiler network with --icecream option
+    * bug fix:
+      - build: fix --include-all option on development branch(orphan-packaging
+                mode)
+      - dependency issue on gbs repository for fedora
+      - disable some invalid pylint errors
+    * update dependencies:
+      - depanneur >= 0.14
+      - git-buildpackage >= 0.6.15-tizen20140828
+
 Release notes for gbs 0.22.1
 ============================
 
