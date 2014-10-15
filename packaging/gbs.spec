@@ -1,5 +1,6 @@
 %{!?python_sitelib: %define python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
 %{!?python_version: %define python_version %(%{__python} -c "import sys; sys.stdout.write(sys.version[:3])")}
+
 %define jobs_dir /var/lib/jenkins/jobs
 %define scripts_dir /var/lib/jenkins/jenkins-scripts
 
