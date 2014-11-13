@@ -24,6 +24,9 @@ import shutil
 import pwd
 import re
 import urlparse
+import glob
+import gzip
+import xml.etree.cElementTree as ET
 
 from gitbuildsys.utils import Temp, RepoParser, read_localconf,\
                               guess_spec, show_file_from_rev
@@ -144,6 +147,10 @@ def prepare_repos_and_build_conf(args, arch, profile):
     if not repos:
         raise GbsError('No package repository specified.')
 
+    archs = get_local_archs(repos)
+    if arch not in archs:
+        log.warning('No local package repository for arch %s' % arch)
+
     repoparser = RepoParser(repos, cachedir)
     repourls = repoparser.get_repos_by_arch(arch)
     if not repourls:
@@ -260,6 +267,47 @@ def get_profile(args):
     else:
         profile = configmgr.get_current_profile()
     return profile
+
+def get_local_archs(repos):
+    """
+    Get the supported arch from prebuilt toolchains
+      > get primary file
+      > get archs
+
+    Each toolchain should contain about 128 packages,
+    it is insufficient if less than that.
+    """
+    def get_primary_file_from_local(repos):
+        def find_primary(repo):
+            pattern = os.path.join(repo, 'repodata', '*primary.*.gz')
+            files = glob.glob(pattern)
+            if files:
+                return files[0]
+
+        for repo in repos:
+            if not repo.startswith('http'):
+                pri = find_primary(repo)
+                if pri:
+                    yield pri
+
+    def extract_arch(primary):
+       with gzip.open(primary) as fobj:
+           root = ET.fromstring(fobj.read())
+
+       xmlns = re.sub(r'metadata$', '', root.tag)
+       for elm in root.getiterator('%spackage' % xmlns):
+           arch = elm.find('%sarch' % xmlns).text
+           if re.match(r'i[3-6]86', arch):
+               yield 'i586'
+           elif arch not in ('noarch', 'src'):
+               yield arch
+
+    archs = set()
+    for pri in get_primary_file_from_local(repos):
+        for arch in extract_arch(pri):
+            archs.add(arch)
+
+    return archs
 
 def main(args):
     """gbs build entry point."""
