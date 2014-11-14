@@ -79,6 +79,7 @@ external software.
 
 %package jenkins-jobs
 Summary: GBS local full build jenkins jobs configurations.
+PreReq:  /usr/sbin/groupadd /usr/sbin/useradd
 
 %description jenkins-jobs
 These jenkins jobs are used to build tizen source from scratch or
@@ -86,6 +87,7 @@ only a part of packages, and create images finally.
 
 %package jenkins-scripts
 Summary:  Jenkins scripts used by gbs-jenkins-job
+PreReq:   /usr/sbin/groupadd /usr/sbin/useradd
 Requires: gbs
 Requires: mic
 
@@ -100,6 +102,11 @@ scripts should be installed on Jenkins slave nodes.
 %build
 %{__python} setup.py build
 make man
+
+%pre
+/usr/bin/getent group jenkins >/dev/null || /usr/sbin/groupadd -r jenkins &>/dev/null || :
+/usr/bin/getent passwd jenkins >/dev/null || /usr/sbin/useradd -g jenkins -s /bin/bash -r -c "Jenkins Continuous Build server" \
+    -d "%{workdir}" jenkins &>/dev/null || :
 
 %install
 %{__python} setup.py install --prefix=%{_prefix} --root=%{buildroot}
