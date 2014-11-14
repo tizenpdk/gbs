@@ -160,7 +160,7 @@ rm -rf %{buildroot}
 %{python_sitelib}/gitbuildsys/cmd_remotebuild.py*
 
 %files jenkins-jobs
-%defattr(-,jenkins,jenkins,-)
+%defattr(-,root,root,-)
 %dir /var/lib/jenkins
 %dir %{jobs_dir}
 %dir %{jobs_dir}/GBS-local-full-build
@@ -169,7 +169,7 @@ rm -rf %{buildroot}
 %{jobs_dir}/GBS-local-build-with-package-list/config.xml
 
 %files jenkins-scripts
-%defattr(-,jenkins,jenkins,-)
+%defattr(-,root,root,-)
 %dir /var/lib/jenkins
 %dir %{scripts_dir}
 %{scripts_dir}/job_local_full_build
