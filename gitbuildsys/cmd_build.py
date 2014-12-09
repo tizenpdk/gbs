@@ -30,7 +30,7 @@ from gitbuildsys.utils import Temp, RepoParser, read_localconf,\
 from gitbuildsys.errors import GbsError, Usage
 from gitbuildsys.conf import configmgr
 from gitbuildsys.safe_url import SafeURL
-from gitbuildsys.cmd_export import get_packaging_dir
+from gitbuildsys.cmd_export import get_packaging_dir, config_is_true
 from gitbuildsys.log import LOGGER as log
 
 from gbp.rpm.git import GitRepositoryError, RpmGitRepository
@@ -361,8 +361,14 @@ def main(args):
         cmd += ['--upstream-branch=%s' % args.upstream_branch]
     if args.upstream_tag:
         cmd += ['--upstream-tag=%s' % args.upstream_tag]
-    if args.fallback_to_native:
+
+    if args.conf and args.conf != '.gbs.conf':
+        fallback = configmgr.get('fallback_to_native')
+    else:
+        fallback = ''
+    if args.fallback_to_native or config_is_true(fallback):
         cmd += ['--fallback-to-native']
+
     if args.squash_patches_until:
         cmd += ['--squash-patches-until=%s' % args.squash_patches_until]
     if args.no_patch_export:
