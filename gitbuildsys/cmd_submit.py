@@ -35,11 +35,10 @@ def _lookup_submit_template():
     user and system settings location
     """
 
-    lookup_paths = (
-      '.gbs/templates/submit_message',
-      '~/.gbs/templates/submit_message',
-      '/etc/gbs/templates/submit_message')
-
+    lookup_paths = ('.gbs/templates/submit_message',
+                    '~/.gbs/templates/submit_message',
+                    '/etc/gbs/templates/submit_message',
+                   )
 
     for path in lookup_paths:
         abs_path = os.path.abspath(os.path.expanduser(path))
@@ -78,8 +77,9 @@ def main(args):
     orphan_packaging = configmgr.get('packaging_branch', 'orphan-devel')
     if orphan_packaging and args.commit == 'HEAD':
         log.error("You seem to be submitting a development branch of an "
-            "(orphan) packaging branch. Please export your changes to the "
-            "packaging branch with 'gbs devel export' and submit from there.")
+                  "(orphan) packaging branch. Please export your changes to"
+                  "the packaging branch with 'gbs devel export' and submit"
+                  "from there.")
         raise GbsError("Refusing to submit from devel branch")
 
     message = args.msg
@@ -106,7 +106,7 @@ def main(args):
             args.remote = upstream.split('/')[0]
         else:
             log.info("no upstream set for the current branch, using "
-                       "'origin' as the remote server")
+                     "'origin' as the remote server")
             args.remote = 'origin'
 
 

@@ -87,7 +87,7 @@ def main(args):
         raise GbsError(str(err))
 
     tmp = Temp(prefix='gbp_', dirn=configmgr.get('tmpdir', 'general'),
-                     directory=True)
+               directory=True)
     packaging_dir = get_packaging_dir(args)
 
     # Guess spec from correct branch
@@ -121,7 +121,7 @@ def main(args):
         ret = gbp_pq_rpm(gbp_args + ['convert'])
         if not ret:
             log.info("You can now create the development branch with "
-                      "'gbs devel start'")
+                     "'gbs devel start'")
     if ret:
         raise GbsError('Action failed!')
 

@@ -178,9 +178,9 @@ def create_gbp_export_args(repo, commit, export_dir, tmp_dir, spec, args,
             argv.extend(["--git-patch-export",
                          "--git-patch-export-compress=100k",
                          "--git-patch-export-squash-until=%s" %
-                            squash_patches_until,
+                         squash_patches_until,
                          "--git-patch-export-ignore-path=^(%s/.*|.gbs.conf)" %
-                            packaging_dir,
+                         packaging_dir,
                         ])
 
             if orphan_packaging:
@@ -202,7 +202,7 @@ def create_gbp_export_args(repo, commit, export_dir, tmp_dir, spec, args,
                      '--git-rpmbuild-srpmdir=.',
                      '--git-rpmbuild-buildrootdir=.',
                      '--short-circuit', '-bs',
-                     ])
+                    ])
     else:
         argv.extend(["--git-builder=osc", "--git-export-only"])
 
@@ -213,7 +213,7 @@ def export_sources(repo, commit, export_dir, spec, args, create_tarball=True):
     Export packaging files using git-buildpackage
     """
     tmp = utils.Temp(prefix='gbp_', dirn=configmgr.get('tmpdir', 'general'),
-                            directory=True)
+                     directory=True)
 
     gbp_args = create_gbp_export_args(repo, commit, export_dir, tmp.path,
                                       spec, args, force_native=False,
@@ -292,7 +292,7 @@ def main(args):
         mkdir_p(outdir)
 
     tmpdir = configmgr.get('tmpdir', 'general')
-    tempd = utils.Temp(prefix=os.path.join(tmpdir, '.gbs_export_'), \
+    tempd = utils.Temp(prefix=os.path.join(tmpdir, '.gbs_export_'),
                        directory=True)
     export_dir = tempd.path
 
@@ -304,14 +304,14 @@ def main(args):
         if rest_specs:
             # backup updated spec file
             specbakd = utils.Temp(prefix=os.path.join(tmpdir, '.gbs_export_'),
-                               directory=True)
-            shutil.copy(os.path.join(export_dir,
-                        os.path.basename(main_spec)), specbakd.path)
+                                  directory=True)
+            shutil.copy(os.path.join(export_dir, os.path.basename(main_spec)),
+                        specbakd.path)
             for spec in rest_specs:
                 export_sources(repo, commit, export_dir, spec, args,
                                create_tarball=False)
-                shutil.copy(os.path.join(export_dir,
-                            os.path.basename(spec)), specbakd.path)
+                shutil.copy(os.path.join(export_dir, os.path.basename(spec)),
+                            specbakd.path)
             # restore updated spec files
             for spec in glob.glob(os.path.join(specbakd.path, "*.spec")):
                 shutil.copy(spec, export_dir)
@@ -338,7 +338,7 @@ def main(args):
 
     shutil.move(export_dir, outdir)
     if args.source_rpm:
-        log.info('source rpm generated to:\n     %s/%s.src.rpm' % \
-                   (outdir, os.path.basename(outdir)))
+        log.info('source rpm generated to:\n     %s/%s.src.rpm' %
+                 (outdir, os.path.basename(outdir)))
 
     log.info('package files have been exported to:\n     %s' % outdir)

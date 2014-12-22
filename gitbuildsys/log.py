@@ -63,8 +63,8 @@ def setup(verbose, debug=False):
 
     # Change logging level names to lower case
     for level in (DEBUG, INFO, WARNING, ERROR):
-        gbp.log.logging.addLevelName(level,
-                                 gbp.log.logging.getLevelName(level).lower())
+        gbp.log.logging.addLevelName(level, \
+                                    gbp.log.logging.getLevelName(level).lower())
     # Set verbosity
     verbose = verbose or debug
     if verbose:
