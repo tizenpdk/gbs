@@ -39,26 +39,26 @@ from gbp.errors import GbpError
 
 
 CHANGE_PERSONALITY = {
-            'ia32':  'linux32',
-            'i686':  'linux32',
-            'i586':  'linux32',
-            'i386':  'linux32',
-            'ppc':   'powerpc32',
-            's390':  's390',
-            'sparc': 'linux32',
-            'sparcv8': 'linux32',
-          }
+    'ia32':  'linux32',
+    'i686':  'linux32',
+    'i586':  'linux32',
+    'i386':  'linux32',
+    'ppc':   'powerpc32',
+    's390':  's390',
+    'sparc': 'linux32',
+    'sparcv8': 'linux32',
+    }
 
 SUPPORTEDARCHS = [
-            'x86_64',
-            'i586',
-            'armv6l',
-            'armv7hl',
-            'armv7l',
-            'aarch64',
-            'mips',
-            'mipsel',
-          ]
+    'x86_64',
+    'i586',
+    'armv6l',
+    'armv7hl',
+    'armv7l',
+    'aarch64',
+    'mips',
+    'mipsel',
+    ]
 
 USERID = pwd.getpwuid(os.getuid())[0]
 TMPDIR = None
@@ -89,7 +89,7 @@ def get_binary_name_from_git(args, package_dirs):
 
     for package_dir in package_dirs:
         main_spec, rest_specs = guess_spec(package_dir, packaging_dir,
-                                                 None, commit)
+                                           None, commit)
         rest_specs.append(main_spec)
         for spec in rest_specs:
             if args.include_all:
@@ -98,7 +98,7 @@ def get_binary_name_from_git(args, package_dirs):
                 content = show_file_from_rev(package_dir, spec, commit)
                 if content is None:
                     raise GbsError('failed to checkout %s from commit: %s' %
-                                    (spec, commit))
+                                   (spec, commit))
                 tmp_spec = Temp(content=content)
                 spec_to_parse = tmp_spec.path
 
@@ -115,7 +115,7 @@ def prepare_repos_and_build_conf(args, arch, profile):
 
     cmd_opts = []
     cache = Temp(prefix=os.path.join(TMPDIR, 'gbscache'),
-                       directory=True)
+                 directory=True)
     cachedir = cache.path
     if not os.path.exists(cachedir):
         os.makedirs(cachedir)
@@ -260,7 +260,6 @@ def get_profile(args):
     else:
         profile = configmgr.get_current_profile()
     return profile
-
 
 def main(args):
     """gbs build entry point."""

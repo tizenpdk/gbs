@@ -47,7 +47,7 @@ def main(args):
         fn_changes = changes_file_list[0]
         if len(changes_file_list) > 1:
             log.warning("Found more than one changes files, %s is taken "
-                           % (changes_file_list[0]))
+                        % (changes_file_list[0]))
     else:
         fn_changes = 'CHANGES'
 
@@ -61,7 +61,7 @@ def main(args):
                 '--spec-file=%s' % specfile,
                 '--changelog-file=%s' % fn_changes,
                 '--editor-cmd=%s' % get_editor_cmd(),
-                ]
+               ]
     if args.since:
         gbp_args.append('--since=%s' % args.since)
     if args.all:

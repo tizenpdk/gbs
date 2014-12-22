@@ -35,7 +35,7 @@ from gitbuildsys.errors import GbsError
 GBS = imp.load_source("gbs", "./tools/gbs").main
 ENV = {}
 
-TEST_SPEC_CONTENT="""
+TEST_SPEC_CONTENT = """
 Name:           test
 Version:        1.0
 Release:        0

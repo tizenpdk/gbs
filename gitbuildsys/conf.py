@@ -164,7 +164,7 @@ class BrainConfigParser(SafeConfigParser):
             return
 
         with open(self._fpname, 'w') as fptr:
-            buf = ''.join([line for line in self._flines if line is not None ])
+            buf = ''.join([line for line in self._flines if line is not None])
             fptr.write(buf)
 
 
@@ -172,23 +172,20 @@ class ConfigMgr(object):
     '''Support multi-levels of gbs.conf. Use this class to get and set
     item value without caring about concrete ini format'''
 
-    DEFAULTS = {
-            'general': {
-                'tmpdir': '/var/tmp',
-                'editor': '',
-                'packaging_branch': 'master',
-                'upstream_branch': 'upstream',
-                'upstream_tag': 'upstream/${upstreamversion}',
-                'squash_patches_until': '',
-                'buildroot':    '~/GBS-ROOT/',
-                'packaging_dir': 'packaging',
-                'work_dir': '.',
-                'fallback_to_native': '',
-            },
-            'orphan-devel': {
-                'packaging_branch': '',
-            },
-    }
+    DEFAULTS = {'general': {'tmpdir': '/var/tmp',
+                            'editor': '',
+                            'packaging_branch': 'master',
+                            'upstream_branch': 'upstream',
+                            'upstream_tag': 'upstream/${upstreamversion}',
+                            'squash_patches_until': '',
+                            'buildroot':    '~/GBS-ROOT/',
+                            'packaging_dir': 'packaging',
+                            'work_dir': '.',
+                            'fallback_to_native': '',
+                           },
+                'orphan-devel': {'packaging_branch': '',
+                                },
+               }
 
     DEFAULT_CONF_TEMPLATE = '''[general]
 #Current profile name which should match a profile section name
@@ -366,9 +363,9 @@ url = http://download.tizen.org/releases/daily/trunk/ivi/latest/
                                 # empty string password is acceptable here
                                 continue
                             cfgparser.set_into_file(sec,
-                                     key + 'x',
-                                     encode_passwd(plainpass),
-                                     key)
+                                                    key + 'x',
+                                                    encode_passwd(plainpass),
+                                                    key)
                             dirty.add(cfgparser)
 
         if dirty:
@@ -590,8 +587,8 @@ class BizConfigManager(ConfigMgr):
             raise errors.ConfigError(err)
 
         log.warning('subcommand oriented style of config is deprecated. '
-            'Please check %s, a new profile oriented style of config which'
-            ' was converted from your current settings.' % fname)
+                    'Please check %s, a new profile oriented style of config '
+                    ' which was converted from your current settings.' % fname)
 
     def get_optional_item(self, section, option, default=None):
         '''return default if section.option does not exist'''
@@ -610,8 +607,9 @@ class BizConfigManager(ConfigMgr):
     def build_profile_by_name(self, name):
         '''return profile object by a given section'''
         if not name.startswith('profile.'):
-            raise errors.ConfigError('section name specified by general.profile'
-                ' must start with string "profile.": %s' % name)
+            raise errors.ConfigError('section name specified by '
+                                     ' general.profile must start with string'
+                                     ' "profile.": %s' % name)
         if not self.has_section(name):
             raise errors.ConfigError('no such section: %s' % name)
 
@@ -648,13 +646,12 @@ class BizConfigManager(ConfigMgr):
         profile.buildroot = self.get_optional_item(name, 'buildroot')
         if self.get_optional_item(name, 'buildconf'):
             profile.buildconf = os.path.expanduser(self._interpolate(
-                                                   self.get_optional_item(name,
-                                                   'buildconf')))
+                self.get_optional_item(name, 'buildconf')))
         if self.get_optional_item(name, 'exclude_packages'):
             exclude_val = self.get_optional_item(name, 'exclude_packages')
             for pkg in exclude_val.split(','):
                 if pkg.strip():
-                    profile.exclude_packages.append(pkg.strip());
+                    profile.exclude_packages.append(pkg.strip())
 
         return profile
 
@@ -705,9 +702,12 @@ class BizConfigManager(ConfigMgr):
             password = self.get_optional_item(sec, 'passwd')
             url = URL(addr, user, password)
 
-            obsconf = SectionConf(profile, 'obs.%s' % sec, url,
-                        self.get_optional_item('remotebuild', 'base_prj'),
-                        self.get_optional_item('remotebuild', 'target_prj'))
+            obsconf = SectionConf(profile,
+                                  'obs.%s' % sec, url,
+                                  self.get_optional_item('remotebuild',
+                                                         'base_prj'),
+                                  self.get_optional_item('remotebuild',
+                                                         'target_prj'))
             profile.set_obs(obsconf)
 
         repos = self._parse_build_repos()

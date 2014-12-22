@@ -32,8 +32,8 @@ class TestHelp(unittest.TestCase):
     def test_subcommand_help():
         """Test running gbs help with all possible subcommands."""
         for sub in ["build", "lb", "remotebuild", "rb", "changelog", "ch",
-                     "submit", "sr", "export", "ex", "import", "im",
-                     "chroot", "chr"]:
+                    "submit", "sr", "export", "ex", "import", "im",
+                    "chroot", "chr"]:
 
             try:
                 print '>>>sub', sub

@@ -43,7 +43,7 @@ class Fixture(object):
         self.fake_files = {self.ETC: etc,
                            self.HOME: home,
                            self.PROJECT: project,
-                           }
+                          }
 
         self.real_exists = os.path.exists
         self.real_abspath = os.path.abspath

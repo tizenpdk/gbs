@@ -152,9 +152,10 @@ class OSC(object):
                 meta += "</repository>\n"
         else:
             logger.warning('no project repos in target project, please add '
-                'repos from OBS webUI manually, or specify base project '
-                'with -B <base_prj>, then gbs can help to set repos '
-                'using the settings of the specified base project.')
+                           'repos from OBS webUI manually, or specify base '
+                           'project with -B <base_prj>, then gbs can help to '
+                           'set repos using the settings of the specified '
+                           'base project.')
         meta += "</project>\n"
 
         try:
@@ -325,7 +326,7 @@ class OSC(object):
         # This regular expression is created for parsing the
         # results of of core.get_results()
         stat_re = re.compile(r'^(?P<repo>\S+)\s+(?P<arch>\S+)\s+'
-                                  '(?P<status>\S*)$')
+                             '(?P<status>\S*)$')
         for res in build_status:
             match = stat_re.match(res)
             if match:

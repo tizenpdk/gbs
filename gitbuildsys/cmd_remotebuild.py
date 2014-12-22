@@ -61,12 +61,12 @@ def main(args):
     apiurl = obsconf.url
 
     if not apiurl.user:
-        raise GbsError('empty user is not allowed for remotebuild, please '\
+        raise GbsError('empty user is not allowed for remotebuild, please '
                        'add user/passwd to gbs conf, and try again')
 
     if args.commit and args.include_all:
         raise Usage('--commit can\'t be specified together with '
-                           '--include-all')
+                    '--include-all')
 
     obs_repo = args.repository
     obs_arch = args.arch
@@ -106,7 +106,7 @@ def main(args):
         content = utils.show_file_from_rev(workdir, relative_spec, commit)
         if content is None:
             raise GbsError('failed to checkout %s from commit: %s' %
-                            (relative_spec, commit))
+                           (relative_spec, commit))
 
         tmp_spec = utils.Temp(content=content)
         spec_to_parse = tmp_spec.path
@@ -139,13 +139,12 @@ def main(args):
 
     api_passwd = apiurl.passwd if apiurl.passwd else ''
     # Create temporary oscrc
-    oscrc = OSCRC_TEMPLATE % {
-                "http_debug": 1 if log.level == DEBUG else 0,
-                "debug": 1 if log.level == DEBUG else 0,
-                "apiurl": apiurl,
-                "user": apiurl.user,
-                "passwdx": encode_passwd(api_passwd),
-            }
+    oscrc = OSCRC_TEMPLATE % {"http_debug": 1 if log.level == DEBUG else 0,
+                              "debug": 1 if log.level == DEBUG else 0,
+                              "apiurl": apiurl,
+                              "user": apiurl.user,
+                              "passwdx": encode_passwd(api_passwd),
+                             }
 
     tmpdir = configmgr.get('tmpdir', 'general')
     tmpd = utils.Temp(prefix=os.path.join(tmpdir, '.gbs_remotebuild_'),
@@ -175,7 +174,7 @@ def main(args):
                                'no build log.' % (package, obs_repo, obs_arch,
                                                   status[obs_repo][obs_arch]))
             log.info('build log for %s/%s/%s/%s' % (target_prj, package,
-                                                      obs_repo, obs_arch))
+                                                    obs_repo, obs_arch))
             print api.get_buildlog(target_prj, package, obs_repo, obs_arch)
 
             return 0
@@ -236,7 +235,7 @@ def main(args):
             api.rebuild(target_prj, package, obs_arch)
         else:
             log.warning("no local changes found. can't trigger rebuild "
-                          "as no available build repos found")
+                        "as no available build repos found")
             return 0
     else:
         log.info('commit packaging files to build server ...')
@@ -245,10 +244,11 @@ def main(args):
             api.commit_files(target_prj, package, commit_files, commit_msg)
         except ObsError as exc:
             raise GbsError('commit packages fail: %s, please check the '
-                       'permission of target project:%s' % (exc, target_prj))
+                           'permission of target project:%s' %
+                           (exc, target_prj))
 
         log.info('local changes submitted to build server successfully')
 
     log.info('follow the link to monitor the build progress:\n'
-               '  %s/package/show?package=%s&project=%s' \
-               % (apiurl.replace('api', 'build'), package, target_prj))
+             '%s/package/show?package=%s&project=%s'
+             % (apiurl.replace('api', 'build'), package, target_prj))
