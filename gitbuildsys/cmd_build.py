@@ -291,16 +291,16 @@ def get_local_archs(repos):
                     yield pri
 
     def extract_arch(primary):
-       with gzip.open(primary) as fobj:
-           root = ET.fromstring(fobj.read())
+        with gzip.open(primary) as fobj:
+            root = ET.fromstring(fobj.read())
 
-       xmlns = re.sub(r'metadata$', '', root.tag)
-       for elm in root.getiterator('%spackage' % xmlns):
-           arch = elm.find('%sarch' % xmlns).text
-           if re.match(r'i[3-6]86', arch):
-               yield 'i586'
-           elif arch not in ('noarch', 'src'):
-               yield arch
+        xmlns = re.sub(r'metadata$', '', root.tag)
+        for elm in root.getiterator('%spackage' % xmlns):
+            arch = elm.find('%sarch' % xmlns).text
+            if re.match(r'i[3-6]86', arch):
+                yield 'i586'
+            elif arch not in ('noarch', 'src'):
+                yield arch
 
     archs = set()
     for pri in get_primary_file_from_local(repos):
