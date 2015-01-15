@@ -79,6 +79,7 @@ external software.
 
 %package jenkins-jobs
 Summary: GBS local full build jenkins jobs configurations.
+Requires: jenkins
 
 %description jenkins-jobs
 These jenkins jobs are used to build tizen source from scratch or
@@ -88,6 +89,7 @@ only a part of packages, and create images finally.
 Summary:  Jenkins scripts used by gbs-jenkins-job
 Requires: gbs
 Requires: mic
+Requires: jenkins
 
 %description jenkins-scripts
 These scripts are used by GBS local full build jenkins jobs. These
@@ -160,7 +162,7 @@ rm -rf %{buildroot}
 %{python_sitelib}/gitbuildsys/cmd_remotebuild.py*
 
 %files jenkins-jobs
-%defattr(-,root,root,-)
+%defattr(-,jenkins,jenkins,-)
 %dir /var/lib/jenkins
 %dir %{jobs_dir}
 %dir %{jobs_dir}/GBS-local-full-build
@@ -169,7 +171,7 @@ rm -rf %{buildroot}
 %{jobs_dir}/GBS-local-build-with-package-list/config.xml
 
 %files jenkins-scripts
-%defattr(-,root,root,-)
+%defattr(-,jenkins,jenkins,-)
 %dir /var/lib/jenkins
 %dir %{scripts_dir}
 %{scripts_dir}/job_local_full_build
