@@ -1,3 +1,15 @@
+gbs (0.23.1) unstable; urgency=high
+  * upgrade to gbs v0.23.1, which contains the following bug fixing & features:
+    * bug fix:
+      - build: fix get "fallback_to_native" value from non-default gbs
+               configuration
+      - fix no jenkins user exists issue when installing gbs-jenkins-scripts and
+        gbs-jenkins-jobs packages
+      - fix bad indentation from pylint checking
+      - fix tag mode in test_import script
+
+ -- Li Jinjing <jinjingx.li@intel.com>  Tue, 20 Jan 2015 10:56:15 +0800
+
 gbs (0.23) unstable; urgency=high
   * upgrade to gbs v0.23, which contains the following bug fixing & features:
     * export: support --fallback-to-native command line option to force gbs
@@ -18,7 +30,7 @@ gbs (0.23) unstable; urgency=high
       - depanneur >= 0.14
       - git-buildpackage >= 0.6.15-tizen20140828
 
- -- Li Jinjing <jinjingx.li@intel.com>  Oct, 15 Jun 2014 10:56:15 +0800
+ -- Li Jinjing <jinjingx.li@intel.com>  Wed, 15 Oct 2014 10:56:15 +0800
 
 gbs (0.22.1) unstable; urgency=high
   * upgrade to gbs v0.22.1, which contains the following bug fixing & features:
