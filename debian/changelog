@@ -1,3 +1,13 @@
+gbs (0.23.2) unstable; urgency=high
+  * upgrade to gbs v0.23.2, which contains the following bug fixing & features:
+    * bug fix:
+      - build: fix get "fallback_to_native" value from non-default gbs
+               configuration
+      - fix bad indentation from pylint checking
+      - fix tag mode in test_import script
+
+ -- Dai Lang <langx.dai@intel.com>  Mon, 2 Feb 2015 10:36:15 +0800
+
 gbs (0.23.1) unstable; urgency=high
   * upgrade to gbs v0.23.1, which contains the following bug fixing & features:
     * bug fix:

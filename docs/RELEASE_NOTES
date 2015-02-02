@@ -1,3 +1,15 @@
+Release notes for gbs 0.23.2
+============================
+
+- Release Date: 2015-02
+
+- New feature and enhancements added:
+    * bug fix:
+      - build: fix get "fallback_to_native" value from non-default gbs
+               configuration
+      - fix bad indentation from pylint checking
+      - fix tag mode in test_import script
+
 Release notes for gbs 0.23.1
 ============================
 
