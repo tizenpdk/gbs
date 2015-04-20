@@ -1,3 +1,11 @@
+gbs (0.23.3) unstable; urgency=high
+  * upgrade to gbs v0.23.3, which contains the following bug fixing & features:
+    * bug fix:
+      - export: fix issue about always creating tarball multi times
+                for native packages with multi specs
+
+ -- Li Jinjing <jinjingx.li@intel.com> Mon, 20 Apr 2015 10:36:15 +0800
+
 gbs (0.23.2) unstable; urgency=high
   * upgrade to gbs v0.23.2, which contains the following bug fixing & features:
     * bug fix:
