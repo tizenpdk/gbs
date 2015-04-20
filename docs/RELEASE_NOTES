@@ -1,3 +1,13 @@
+Release notes for gbs 0.23.3
+============================
+
+- Release Date: 2015-04
+
+- New feature and enhancements added:
+    * bug fix:
+      - export: fix issue about always creating tarball multi times
+                for native packages with multi specs
+
 Release notes for gbs 0.23.2
 ============================
 

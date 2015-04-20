@@ -1,3 +1,9 @@
+* Mon Apr 20 2015 Li Jinjing <jinjingx.li@intel.com> 0.23.3
+  * upgrade to gbs v0.23.3, which contains the following bug fixing & features:
+    * bug fix:
+      - export: fix issue about always creating tarball multi times for native
+                packages with multi specs
+
 * Mon Feb 2 2015 Dai Lang <langx.dai@intel.com> 0.23.2
   * upgrade to gbs v0.23.2, which contains the following bug fixing & features:
     * bug fix:
