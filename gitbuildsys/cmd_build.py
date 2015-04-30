@@ -28,7 +28,7 @@ import glob
 import gzip
 import xml.etree.cElementTree as ET
 
-from gitbuildsys.utils import Temp, RepoParser, read_localconf,\
+from gitbuildsys.utils import Temp, RepoParser, read_localconf, \
                               guess_spec, show_file_from_rev
 from gitbuildsys.errors import GbsError, Usage
 from gitbuildsys.conf import configmgr
