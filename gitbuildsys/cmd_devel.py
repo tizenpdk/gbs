@@ -21,7 +21,7 @@
 
 import os
 import datetime
-import glob
+#import glob
 import re
 
 from gitbuildsys.cmd_export import get_packaging_dir
