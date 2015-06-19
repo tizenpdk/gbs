@@ -25,7 +25,6 @@ Resource
  * BUGS: https://bugs.tizen.org/jira
  * HELP: general@lists.tizen.org
 
-
 License
 -------
 GBS is Open Source and distributed under the GPLv2 License.
