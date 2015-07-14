@@ -3,7 +3,7 @@ GBS - Git Build System
 ----------------------------
 tool-release test Li Kangjie
 -----------------------------
-
+ 
 Overview
 --------
 GBS means "git build system" and it's used to building Tizen source packages.
