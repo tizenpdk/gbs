@@ -1,6 +1,6 @@
 GBS - Git Build System
 ======================
-
+ 
 Overview
 --------
 GBS means "git build system" and it's used to building Tizen source packages.
