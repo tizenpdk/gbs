@@ -222,6 +222,8 @@ def prepare_depanneur_opts(args):
         cmd_opts += ['--baselibs']
     if args.skip_srcrpm:
         cmd_opts += ['--skip-srcrpm']
+    if args.fail_fast:
+        cmd_opts += ['--fail-fast']
     #
     if args.package_list:
         package_list = args.package_list.split(',')
