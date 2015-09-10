@@ -201,6 +201,8 @@ def build_parser(parser):
     group.add_argument('--clean-repos', action='store_true',
                         help='clean up local repos created by gbs build '
                         'before building packages')
+    group.add_argument('--fail-fast', action='store_true',
+                        help='stop build if one of packages fails')
     group.add_argument('--extra-packs',
                         help='specify extra packages to install to build root, '
                         'Multiple packages can be separated by comma(,)')
