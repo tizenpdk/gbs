@@ -203,6 +203,9 @@ def build_parser(parser):
                         'before building packages')
     group.add_argument('--fail-fast', action='store_true',
                         help='stop build if one of packages fails')
+    group.add_argument('--keepgoing',
+                        help='If a package build fails, do not abort and continue'
+                        'building other packages in the queue')
     group.add_argument('--extra-packs',
                         help='specify extra packages to install to build root, '
                         'Multiple packages can be separated by comma(,)')
