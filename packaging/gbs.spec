@@ -20,7 +20,7 @@ Source0:    %{name}_%{version}.tar.gz
 Requires:   python >= 2.6
 Requires:   python-pycurl
 Requires:   sudo
-Requires:   osc >= 0.139.0
+Requires:   osc >= 0.132.6
 Requires:   tizen-gbp-rpm >= 20140828
 Requires:   depanneur >= 0.14
 
@@ -46,7 +46,7 @@ Summary:       GBS APIs
 Conflicts:     gbs < 0.15
 Requires:      python
 Requires:      python-pycurl
-Requires:      osc >= 0.139.0
+Requires:      osc >= 0.132.6
 Requires:      git-buildpackage-rpm
 
 %description api
