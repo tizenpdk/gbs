@@ -27,7 +27,7 @@ Package: gbs-api
 Architecture: all
 Depends: ${misc:Depends}, ${python:Depends},
  python-pycurl,
- osc (>= 0.139.0),
+ osc (>= 0.132.6),
  git-buildpackage-rpm
 Conflicts: gbs (<< 0.15)
 Replaces: gbs (<< 0.15)
