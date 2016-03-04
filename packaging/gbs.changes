@@ -1,3 +1,10 @@
+* Wed May 02 2016 Wang jun <junbill.wang@samsung.com> 0.24
+  * upgrade to gbs v0.24, which contains the following bug fixing & features:
+    * bug fix:
+      - fix Security issues that normal user can gain root permission with gbs chroot
+      - fix  git-build-package bugs and imporve some performance
+    *Add --fail-fast option.
+
 * Wed Oct 15 2014 Li Jinjing <jinjingx.li@intel.com> 0.23
   * upgrade to gbs v0.23, which contains the following bug fixing & features:
     * export: support --fallback-to-native command line option to force gbs to
