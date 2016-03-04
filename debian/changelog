@@ -1,3 +1,10 @@
+gbs (0.24) unstable; urgency=high
+  * upgrade to gbs v0.24, which contains the following bug fixing & features:
+    * bug fix:
+      - fix Security issues that normal user can gain root permission with gbs chroot
+      - fix  git-build-package bugs and imporve some performance
+    *Add --fail-fast option.
+
 gbs (0.23.2) unstable; urgency=high
   * upgrade to gbs v0.23.2, which contains the following bug fixing & features:
     * bug fix:
@@ -19,7 +26,6 @@ gbs (0.23.1) unstable; urgency=high
       - fix tag mode in test_import script
 
  -- Li Jinjing <jinjingx.li@intel.com>  Tue, 20 Jan 2015 10:56:15 +0800
-
 gbs (0.23) unstable; urgency=high
   * upgrade to gbs v0.23, which contains the following bug fixing & features:
     * export: support --fallback-to-native command line option to force gbs

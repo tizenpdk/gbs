@@ -6,7 +6,7 @@
 
 Name:       gbs
 Summary:    The command line tools for Tizen package developers
-Version:    0.23.2
+Version:    0.24
 %if 0%{?opensuse_bs}
 Release:    1.<CI_CNT>.<B_CNT>
 %else
@@ -21,8 +21,8 @@ Requires:   python >= 2.6
 Requires:   python-pycurl
 Requires:   sudo
 Requires:   osc >= 0.132.6
-Requires:   tizen-gbp-rpm >= 20140828
-Requires:   depanneur >= 0.14
+Requires:   tizen-gbp-rpm >= 20160302
+Requires:   depanneur >= 0.15
 
 %if "%{?python_version}" < "2.7"
 Requires:   python-argparse
