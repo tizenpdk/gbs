@@ -5,6 +5,9 @@ gbs (0.24) unstable; urgency=high
       - fix  git-build-package bugs and imporve some performance
     *Add --fail-fast option.
 
+ -- Wang Jun <junbill.wang@samsung.com>  Wed, 2 Mar 2016 10:00:00 +0800
+
+
 gbs (0.23.2) unstable; urgency=high
   * upgrade to gbs v0.23.2, which contains the following bug fixing & features:
     * bug fix:
