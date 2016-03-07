@@ -21,7 +21,7 @@ Requires:   python >= 2.6
 Requires:   python-pycurl
 Requires:   sudo
 Requires:   osc >= 0.132.6
-Requires:   tizen-gbp-rpm >= 20160302
+Requires:   tizen-gbp-rpm >= 20140828
 Requires:   depanneur >= 0.15
 
 %if "%{?python_version}" < "2.7"
