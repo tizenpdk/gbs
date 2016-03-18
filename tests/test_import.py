@@ -85,7 +85,7 @@ class TestImport(unittest.TestCase):
         eq_(GBS(argv=["gbs", "import", srcrpm]), None)
         repo = GitRepository("./ail")
         eq_(repo.get_local_branches(), ['master', 'pristine-tar', 'upstream'])
-        eq_(repo.get_tags(), ['packaging/0.2.29-2.3', 'upstream/0.2.29'])
+        eq_(repo.get_tags(), ['upstream/0.2.29', 'vendor/0.2.29-2.3'])
 
     @with_data("bluez_unpacked")
     def test_import_spec(self, srcdir):
@@ -108,7 +108,7 @@ class TestImport(unittest.TestCase):
         os.chdir(repo.path)
         eq_(GBS(argv=["gbs", "import", srcrpm]), None)
         eq_(repo.get_local_branches(), ['master', 'pristine-tar', 'upstream'])
-        eq_(repo.get_tags(), ['packaging/0.2.29-2.5', 'upstream/0.2.29'])
+        eq_(repo.get_tags(), ['upstream/0.2.29','vendor/0.2.29-2.5'])
 
         #raise Exception(os.listdir('./bluez'))
 
@@ -120,7 +120,7 @@ class TestImport(unittest.TestCase):
                       srcrpm]), None)
         repo = GitRepository("./app-core")
         eq_(repo.get_local_branches(), ['master', 'pristine-tar', 'upstream'])
-        eq_(repo.get_tags(), ['packaging/1.2-19.3', 'upstream/1.2'])
+        eq_(repo.get_tags(), ['upstream/1.2', 'vendor/1.2-19.3'])
 
     @with_data("ail-0.2.29-2.3.src.rpm")
     def test_specify_upstream(self, srcrpm):
@@ -129,7 +129,7 @@ class TestImport(unittest.TestCase):
                       srcrpm]), None)
         repo = GitRepository("./ail")
         eq_(repo.get_local_branches(), ['master', 'pristine-tar', 'upstream'])
-        eq_(repo.get_tags(), ['packaging/0.2.29-2.3', 'upstream/0.2.29'])
+        eq_(repo.get_tags(), ['upstream/0.2.29','vendor/0.2.29-2.3'])
 
     @raises(GbsError)
     @with_data("bison-1.27.tar.gz")
