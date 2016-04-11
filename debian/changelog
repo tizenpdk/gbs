@@ -1,10 +1,11 @@
-gbs (0.23.3) unstable; urgency=high
-  * upgrade to gbs v0.23.3, which contains the following bug fixing & features:
+gbs (0.24) unstable; urgency=high
+  * upgrade to gbs v0.24, which contains the following bug fixing & features:
     * bug fix:
-      - export: fix issue about always creating tarball multi times
-                for native packages with multi specs
+      - fix Security issues that normal user can gain root permission with gbs chroot
+      - fix  git-build-package bugs and imporve some performance
+    *Add --fail-fast option.
 
- -- Li Jinjing <jinjingx.li@intel.com> Mon, 20 Apr 2015 10:36:15 +0800
+ -- Wang Jun <junbill.wang@samsung.com>  Wed, 2 Mar 2016 10:00:00 +0800
 
 gbs (0.23.2) unstable; urgency=high
   * upgrade to gbs v0.23.2, which contains the following bug fixing & features:
@@ -27,7 +28,6 @@ gbs (0.23.1) unstable; urgency=high
       - fix tag mode in test_import script
 
  -- Li Jinjing <jinjingx.li@intel.com>  Tue, 20 Jan 2015 10:56:15 +0800
-
 gbs (0.23) unstable; urgency=high
   * upgrade to gbs v0.23, which contains the following bug fixing & features:
     * export: support --fallback-to-native command line option to force gbs

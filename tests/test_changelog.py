@@ -106,8 +106,9 @@ class TestChangelog(unittest.TestCase):
 
     def test_new_changes(self):
         """Test generating new .changes."""
-        with assert_raises(GbsError):
-            eq_(GBS(argv=["gbs", "changelog"]), None)
+        assert_raises(GbsError, GBS, argv=["gbs", "changelog"])
+        #with assert_raises(GbsError):
+        #    eq_(GBS(argv=["gbs", "changelog"]), None)
         ok_(not os.path.exists(self.changes))
 
         eq_(GBS(argv=["gbs", "changelog", "--since=HEAD~2"]), None)

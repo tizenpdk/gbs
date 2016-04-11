@@ -108,7 +108,7 @@ class TestImport(unittest.TestCase):
         os.chdir(repo.path)
         eq_(GBS(argv=["gbs", "import", srcrpm]), None)
         eq_(repo.get_local_branches(), ['master', 'pristine-tar', 'upstream'])
-        eq_(repo.get_tags(), ['upstream/0.2.29', 'vendor/0.2.29-2.5'])
+        eq_(repo.get_tags(), ['upstream/0.2.29','vendor/0.2.29-2.5'])
 
         #raise Exception(os.listdir('./bluez'))
 
@@ -129,7 +129,7 @@ class TestImport(unittest.TestCase):
                       srcrpm]), None)
         repo = GitRepository("./ail")
         eq_(repo.get_local_branches(), ['master', 'pristine-tar', 'upstream'])
-        eq_(repo.get_tags(), ['upstream/0.2.29', 'vendor/0.2.29-2.3'])
+        eq_(repo.get_tags(), ['upstream/0.2.29','vendor/0.2.29-2.3'])
 
     @raises(GbsError)
     @with_data("bison-1.27.tar.gz")

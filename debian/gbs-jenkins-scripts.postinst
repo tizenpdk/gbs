@@ -1,1 +1,0 @@
-chown -R jenkins. /var/lib/jenkins/jenkins-scripts

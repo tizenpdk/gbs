@@ -6,7 +6,7 @@
 
 Name:       gbs
 Summary:    The command line tools for Tizen package developers
-Version:    0.23.3
+Version:    0.24
 %if 0%{?opensuse_bs}
 Release:    1.<CI_CNT>.<B_CNT>
 %else
@@ -20,9 +20,9 @@ Source0:    %{name}_%{version}.tar.gz
 Requires:   python >= 2.6
 Requires:   python-pycurl
 Requires:   sudo
-Requires:   osc >= 0.139.0
-Requires:   tizen-gbp-rpm >= 0.6.15-20150303
-Requires:   depanneur >= 0.14
+Requires:   osc >= 0.132.6
+Requires:   tizen-gbp-rpm >= 20140828
+Requires:   depanneur >= 0.15
 
 %if "%{?python_version}" < "2.7"
 Requires:   python-argparse
@@ -46,7 +46,7 @@ Summary:       GBS APIs
 Conflicts:     gbs < 0.15
 Requires:      python
 Requires:      python-pycurl
-Requires:      osc >= 0.139.0
+Requires:      osc >= 0.132.6
 Requires:      git-buildpackage-rpm
 
 %description api
@@ -167,7 +167,7 @@ rm -rf %{buildroot}
 %{python_sitelib}/gitbuildsys/cmd_remotebuild.py*
 
 %files jenkins-jobs
-%defattr(-,jenkins,jenkins,-)
+%defattr(-,root,root,-)
 %dir /var/lib/jenkins
 %dir %{jobs_dir}
 %dir %{jobs_dir}/GBS-local-full-build
@@ -176,7 +176,7 @@ rm -rf %{buildroot}
 %{jobs_dir}/GBS-local-build-with-package-list/config.xml
 
 %files jenkins-scripts
-%defattr(-,jenkins,jenkins,-)
+%defattr(-,root,root,-)
 %dir /var/lib/jenkins
 %dir %{scripts_dir}
 %{scripts_dir}/job_local_full_build

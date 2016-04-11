@@ -1,5 +1,8 @@
 GBS - Git Build System
 ======================
+-----------------------------
+tool-release test Li Kangjie
+-----------------------------
 
 Overview
 --------
@@ -21,7 +24,6 @@ Resource
          https://github.com/01org/gbs
  * BUGS: https://bugs.tizen.org/jira
  * HELP: general@lists.tizen.org
-
 
 License
 -------

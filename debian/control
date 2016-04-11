@@ -12,8 +12,8 @@ Architecture: all
 Depends: ${misc:Depends}, ${python:Depends},
  python-pycurl,
  sudo,
- osc (>= 0.139.0),
- git-buildpackage-rpm (>= 0.6.15-tizen20150303),
+ osc (>= 0.132.6),
+ git-buildpackage-rpm (>= 0.6.15-tizen20140828),
  gbs-api (= ${binary:Version}),
  gbs-export (= ${binary:Version}),
  gbs-remotebuild (= ${binary:Version}),
@@ -27,7 +27,7 @@ Package: gbs-api
 Architecture: all
 Depends: ${misc:Depends}, ${python:Depends},
  python-pycurl,
- osc (>= 0.139.0),
+ osc (>= 0.132.6),
  git-buildpackage-rpm
 Conflicts: gbs (<< 0.15)
 Replaces: gbs (<< 0.15)
