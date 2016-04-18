@@ -1,12 +1,18 @@
-Release notes for gbs 0.23.3
-============================
+Release notes for gbs 0.24
+==========================
 
-- Release Date: 2015-04
+- Release Date: 2016-03
 
 - New feature and enhancements added:
-    * bug fix:
-      - export: fix issue about always creating tarball multi times
-                for native packages with multi specs
+    * Add --fail-fast option: stop building immediately if one of packages fails
+    * Support new distribution: CentOS 7, Debian 8, Fedora 21, Fedora 22, openSUSE 13.2
+    * Improve performance of GBS
+
+- Bug fix:
+    * Fix security issues that normal user can gain root permission with gbs chroot
+    * Fix git-build-package bugs and imporve some performance
+    * Fix error logs when __import__ faild,like "No handlers could be found fo logger"
+    * Fix build problem on Debian 8
 
 Release notes for gbs 0.23.2
 ============================
