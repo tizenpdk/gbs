@@ -4,6 +4,8 @@
       - fix Security issues that normal user can gain root permission with gbs chroot
       - fix  git-build-package bugs and imporve some performance
     *Add --fail-fast option.
+    * update dependencies:
+      - depanneur >= 0.15
 
 * Mon Feb 2 2015 Dai Lang <langx.dai@intel.com> 0.23.2
   * upgrade to gbs v0.23.2, which contains the following bug fixing & features:

@@ -7,6 +7,12 @@ Release notes for gbs 0.24
     * Add --fail-fast option: stop building immediately if one of packages fails
     * Support new distribution: CentOS 7, Debian 8, Fedora 21, Fedora 22, openSUSE 13.2
     * Improve performance of GBS
+      - major changes could be found in git-buildpackage：
+      - Remove or redefine functions which have wrong logic process，
+        It can reduce time to compress or uncompress git files through gbp command.
+      - Remove all other log handlers when capturing logs for test cases
+    * update dependencies:
+      - depanneur >= 0.15
 
 - Bug fix:
     * Fix security issues that normal user can gain root permission with gbs chroot
