@@ -49,7 +49,7 @@ gbs (0.23) unstable; urgency=high
       - depanneur >= 0.14
       - git-buildpackage >= 0.6.15-tizen20140828
 
- -- Li Jinjing <jinjingx.li@intel.com>  Oct, 15 Jun 2014 10:56:15 +0800
+ -- Li Jinjing <jinjingx.li@intel.com>  Wed, 15 Oct 2014 10:56:15 +0800
 
 gbs (0.22.1) unstable; urgency=high
   * upgrade to gbs v0.22.1, which contains the following bug fixing & features:

@@ -5,6 +5,24 @@
       - fix  git-build-package bugs and imporve some performance
     *Add --fail-fast option.
 
+* Mon Feb 2 2015 Dai Lang <langx.dai@intel.com> 0.23.2
+  * upgrade to gbs v0.23.2, which contains the following bug fixing & features:
+    * bug fix:
+      - build: fix get "fallback_to_native" value from non-default gbs
+        configuration
+      - fix bad indentation from pylint checking
+      - fix tag mode in test_import script
+
+* Tue Jan 20 2015 Li Jinjing <jinjingx.li@intel.com> 0.23.1
+  * upgrade to gbs v0.23.1, which contains the following bug fixing & features:
+    * bug fix:
+      - build: fix get "fallback_to_native" value from non-default gbs
+        configuration
+      - fix no jenkins user exists issue when installing gbs-jenkins-scripts and
+        gbs-jenkins-jobs packages
+      - fix bad indentation from pylint checking
+      - fix tag mode in test_import script
+
 * Wed Oct 15 2014 Li Jinjing <jinjingx.li@intel.com> 0.23
   * upgrade to gbs v0.23, which contains the following bug fixing & features:
     * export: support --fallback-to-native command line option to force gbs to

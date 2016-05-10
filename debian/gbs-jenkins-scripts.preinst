@@ -1,0 +1,15 @@
+: ${JENKINS_USER:=jenkins}
+: ${JENKINS_GROUP:=jenkins}
+
+# Create jenkins group and user if they don't exist.
+# sometimes tools that users want Jenkins to run need a shell,
+# so use /bin/bash. See JENKINS-4830
+if ! getent group "$JENKINS_GROUP" > /dev/null; then
+    addgroup --system --quiet "$JENKINS_GROUP"
+fi
+if ! id "$JENKINS_USER" >/dev/null 2>&1 ; then
+    adduser --system --quiet --home /var/lib/jenkins --no-create-home \
+        --ingroup "$JENKINS_GROUP" --disabled-password --shell /bin/bash \
+        --gecos 'Jenkins' \
+        "$JENKINS_USER"
+fi

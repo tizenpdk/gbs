@@ -69,6 +69,6 @@ Package: gbs-jenkins-scripts
 Architecture: all
 Depends: ${misc:Depends},
  gbs,
- mic
+ mic,
 Description: Jenkins scripts used by gbs-jenkins-job
  These scripts are used by GBS local full build jenkins jobs. These scripts should be installed on Jenkins slave nodes.
