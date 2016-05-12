@@ -299,6 +299,8 @@ def build_parser(parser):
     group.add_argument('--rdeps', action='store_true',
                         help='build specified packages and all packages '
                         'depend on them')
+    group.add_argument('-i', '--install', action='store_true',
+                    help='uses gbs install -f -n -d after build')
 
     parser.set_defaults(alias="lb")
     return parser
@@ -538,6 +540,49 @@ def devel_parser(parser):
     parser.add_argument('action', choices=['start', 'export', 'drop', 'switch',
                         'convert'],
                         help='Action to take')
+    return parser
+
+@subparser
+def install_parser(parser):
+    """Install rpms from last built of given profile or all built rpms for given profile
+    Examples:
+      $ gbs install -A arch -P profile
+      $ gbs install -A arch -P profile -a
+    """
+
+    parser.add_argument('gitdir', nargs='?', type=os.path.abspath,
+                        default=os.getcwd(),
+                        action=SearchConfAction,
+                        help='git repository path, which can contain multiple '
+                        'packages, in this case, all packages will be built in '
+                        'dependency order')
+    parser.add_argument('-A', '--arch',
+                        help='OBS build architecture for --buildlog')
+    parser.add_argument('-P', '--profile',
+                    help='profile to be used for building, can be given '
+                         'without the "profile." prefix')
+    parser.add_argument('-B', '--buildroot',
+                    help='specify build root to setup chroot environment. '
+                    'By default, ~/GBS-ROOT/ will be used. User can specify'
+                    ' customized build root in gbs.conf with \'buildroot\' '
+                    'key, which can be set in [general] section for default'
+                    ' build root, or in [profile.xx] section for profile '
+                    'special build root')
+    parser.add_argument('-a', '--all',
+                        action='store_true',
+                        help='Install all rpms built for given profile')
+    parser.add_argument('-d', '--debug',
+                        action='store_true',
+                        help='Install debug rpms as well')
+    parser.add_argument('-f', '--force',
+                        action='store_true',
+                        help='Force install rpms')
+    parser.add_argument('-n', '--nodeps',
+                        action='store_true',
+                        help='Install rpms, ignore dependencies')
+    parser.add_argument('-m', '--method', choices=['auto', 'sdb', 'ssh'],
+                        default='auto',
+                        help='What connection use to install rpms')
     return parser
 
 def main(argv):

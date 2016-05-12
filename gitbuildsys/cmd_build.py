@@ -27,10 +27,11 @@ import urlparse
 import glob
 import gzip
 import xml.etree.cElementTree as ET
+import subprocess
 
 from gitbuildsys.utils import Temp, RepoParser, read_localconf, \
                               guess_spec, show_file_from_rev
-from gitbuildsys.errors import GbsError, Usage
+from gitbuildsys.errors import GbsError, Usage, CmdError
 from gitbuildsys.conf import configmgr
 from gitbuildsys.safe_url import SafeURL
 from gitbuildsys.cmd_export import get_packaging_dir, config_is_true
@@ -438,3 +439,13 @@ def main(args):
         raise GbsError('some packages failed to be built')
     else:
         log.info('Done')
+
+    if args.install:
+        cmd = ['gbs', 'install', '-d', '-n', '-f']
+        if args.profile:
+            cmd += ['-P', args.profile]
+        if args.arch:
+            cmd += ['-A', args.arch]
+        code_r = subprocess.Popen(cmd).wait()
+        if code_r:
+            raise CmdError('Command failed: %s' % ' '.join(cmd))
