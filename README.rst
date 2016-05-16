@@ -29,7 +29,6 @@ License
 -------
 GBS is Open Source and distributed under the GPLv2 License.
 
-
 Contacts
 --------
 When you found a bug, you can file this bug in our official bug tracker:
