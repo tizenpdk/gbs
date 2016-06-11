@@ -1,3 +1,51 @@
+Release notes for gbs 0.24
+==========================
+
+- Release Date: 2016-03
+
+- New feature and enhancements added:
+    * Add --fail-fast option: stop building immediately if one of packages fails
+    * Support new distribution: CentOS 7, Debian 8, Fedora 21, Fedora 22, openSUSE 13.2
+    * Improve performance of GBS
+      - major changes could be found in git-buildpackage£º
+      - Remove or redefine functions which have wrong logic process£¬
+        It can reduce time to compress or uncompress git files through gbp command.
+      - Remove all other log handlers when capturing logs for test cases
+    * update dependencies:
+      - depanneur >= 0.15
+
+- Bug fix:
+    * Fix security issues that normal user can gain root permission with gbs chroot
+    * Fix git-build-package bugs and imporve some performance
+    * Fix error logs when __import__ faild,like "No handlers could be found fo logger"
+    * Fix build problem on Debian 8
+
+Release notes for gbs 0.23.2
+============================
+
+- Release Date: 2015-02
+
+- New feature and enhancements added:
+    * bug fix:
+      - build: fix get "fallback_to_native" value from non-default gbs
+               configuration
+      - fix bad indentation from pylint checking
+      - fix tag mode in test_import script
+
+Release notes for gbs 0.23.1
+============================
+
+- Release Date: 2015-01
+
+- New feature and enhancements added:
+    * bug fix:
+      - build: fix get "fallback_to_native" value from non-default gbs
+               configuration
+      - fix no jenkins user exists issue when installing gbs-jenkins-scripts and
+        gbs-jenkins-jobs packages
+      - fix bad indentation from pylint checking
+      - fix tag mode in test_import script
+
 Release notes for gbs 0.23
 ==========================
 

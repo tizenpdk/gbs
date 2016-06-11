@@ -12,12 +12,12 @@ Architecture: all
 Depends: ${misc:Depends}, ${python:Depends},
  python-pycurl,
  sudo,
- osc (>= 0.139.0),
+ osc (>= 0.132.6),
  git-buildpackage-rpm (>= 0.6.15-tizen20140828),
  gbs-api (= ${binary:Version}),
  gbs-export (= ${binary:Version}),
  gbs-remotebuild (= ${binary:Version}),
- depanneur (>= 0.14)
+ depanneur (>= 0.15)
 Recommends: librpm-tizen (>= 4.11.0.1.tizen20130618-tizen20131001)
 Description: Command line tools for Tizen package developers
  The command line tools for Tizen package developers will
@@ -27,7 +27,7 @@ Package: gbs-api
 Architecture: all
 Depends: ${misc:Depends}, ${python:Depends},
  python-pycurl,
- osc (>= 0.139.0),
+ osc (>= 0.132.6),
  git-buildpackage-rpm
 Conflicts: gbs (<< 0.15)
 Replaces: gbs (<< 0.15)
@@ -69,7 +69,6 @@ Package: gbs-jenkins-scripts
 Architecture: all
 Depends: ${misc:Depends},
  gbs,
- mic
  mic,
 Description: Jenkins scripts used by gbs-jenkins-job
  These scripts are used by GBS local full build jenkins jobs. These scripts should be installed on Jenkins slave nodes.
