@@ -7,14 +7,19 @@
     *New
      - Upgrade latest build from upstream and suit for gbs
      - Upgrade depannuer to meet new version of build
-     - Support new platform Ubuntu 16.04
+     - Support new platform Ubuntu 16.04, Fedora 23
 
 * Wed May 02 2016 Wang jun <junbill.wang@samsung.com> 0.24
   * upgrade to gbs v0.24, which contains the following bug fixing & features:
     * bug fix:
       - fix Security issues that normal user can gain root permission with gbs chroot
       - fix  git-build-package bugs and imporve some performance
-    *Add --fail-fast option.
+      - Fix error logs when __import__ faild,like "No handlers could be found fo logger"
+      - Fix build problem on Debian 8
+    * New feature and enhancements added:
+      - Add --fail-fast option: stop building immediately if one of packages fails
+      - Support new distribution: CentOS 7, Debian 8, Fedora 21, Fedora 22, openSUSE 13.2
+      - Improve performance of GBS
     * update dependencies:
       - depanneur >= 0.15
 

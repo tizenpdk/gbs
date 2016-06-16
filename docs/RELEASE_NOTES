@@ -10,7 +10,7 @@ Release notes for gbs 0.24.1
 - New feature and enhancements added:
     *  Upgrade latest build from upstream and suit for gbs
     *  Upgrade depannuer to meet new version of build
-    * Support new platform Ubuntu 16.04
+    * Support new platform Ubuntu 16.04, Fedora 23
 
 Release notes for gbs 0.24
 ==========================
