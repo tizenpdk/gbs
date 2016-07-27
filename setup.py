@@ -9,6 +9,20 @@ from distutils.core import setup
 
 MOD_NAME = 'gitbuildsys'
 
+def check_debian():
+    """--install-layout is recognized after 2.5"""
+    if sys.version_info[:2] > (2, 5):
+        if len(sys.argv) > 1 and 'install' in sys.argv:
+            try:
+                import platform
+                (dist, _, _) = platform.linux_distribution()
+                # for debian-like distros, mods will be installed to
+                # ${PYTHONLIB}/dist-packages
+                if dist in ('debian', 'Ubuntu'):
+                    sys.argv.append('--install-layout=deb')
+            except AttributeError:
+                pass
+
 def get_version(mod_name):
     """Get version from module __init__.py"""
     path = os.path.join(mod_name, "__init__.py")
@@ -24,6 +38,8 @@ def get_version(mod_name):
 
     print 'Unable to find version in %s' % path
     sys.exit(1)
+
+check_debian()
 
 setup(name='gbs',
       version=get_version(MOD_NAME),
