@@ -1,3 +1,16 @@
+gbs (0.24.2) unstable; urgency=high
+  * upgrade to gbs v0.24.2, which contains the following bug fixing & features:
+    * bug fix:
+      - Support python-support package for Ubuntu 16.04
+      - Support 'build' and 'depanneur' package for openSUSE 12.3 
+        (upgraded version of 'build' package does not support openSUSE 12.3)
+    * New feature and enhancements added:
+     - Upgrade gbs dependency on pristine-tar
+       (upgraded version of pristine-tar is not automatically installed in 'deb'-type linux distros) 
+
+ -- SoonKyu Park <sk7.park@samsung.com>  Mon, 08 Aug 2016 10:00:00 +0800
+
+
 gbs (0.24.1) unstable; urgency=high
   * upgrade to gbs v0.24.1, which contains the following bug fixing & features:
     * bug fix:

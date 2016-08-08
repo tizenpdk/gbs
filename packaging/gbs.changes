@@ -1,3 +1,13 @@
+* Mon Aug 08 2016 SoonKyu Park <sk7.park@samsung.com> 0.24.2
+  * upgrade to gbs v0.24.2, which contains the following bug fixing & features:
+    * bug fix:
+      - Support python-support package for Ubuntu 16.04
+      - Support 'build' and 'depanneur' package for openSUSE 12.3
+        (upgraded version of 'build' package does not support openSUSE 12.3)
+    *New
+      - Upgrade gbs dependency on pristine-tar
+        (upgraded version of pristine-tar is not automatically installed in 'deb'-type linux distros)
+
 * Wed May 25 2016 Wang jun <junbill.wang@samsung.com> 0.24.1
   * upgrade to gbs v0.24.1, which contains the following bug fixing & features:
     * bug fix:
