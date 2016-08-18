@@ -213,6 +213,8 @@ def build_parser(parser):
                         help='keep unused packages in build root. without '
                         'this option, unused packages will be removed from '
                         'build root')
+    group.add_argument('--use-higher-deps', action='store_true',
+                        help='Which repo provides higher version deps, use it')
 
     group = parser.add_argument_group('speed up building options')
     group.add_argument('--incremental', action='store_true',
