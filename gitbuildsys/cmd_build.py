@@ -218,6 +218,8 @@ def prepare_depanneur_opts(args):
         cmd_opts += ['--no-configure']
     if args.keep_packs:
         cmd_opts += ['--keep-packs']
+    if args.use_higher_deps:
+        cmd_opts += ['--use-higher-deps']
     if args.baselibs:
         cmd_opts += ['--baselibs']
     if args.skip_srcrpm:
