@@ -204,7 +204,7 @@ def create_gbp_export_args(repo, commit, export_dir, tmp_dir, spec, args,
                      '--short-circuit', '-bs',
                     ])
     else:
-        argv.extend(["--git-builder=osc", "--git-export-only"])
+        argv.extend(["--git-builder=osc", "--git-no-build"])
 
     return argv
 
