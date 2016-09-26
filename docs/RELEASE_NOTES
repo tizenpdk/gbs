@@ -1,3 +1,20 @@
+Release notes for gbs 0.24.3
+==========================
+
+- Release Date: 2016-09
+
+- Bug fix:
+    * fix conflicts in installation gbs onto Ubuntu 16.04
+    * Revert gbs package selection policy - local repo has highest priority
+    * Modify export option to avoid warning message 
+      (Warning: Deprecated option '--git-export-only', please use '--no-build' instead! )
+    * Do not print error string "unknown keyword in config: copylinkedpackages:"
+    * use correct dir for creation of icecream env
+- New feature and enhancements added:
+    * Add --use-higher-deps option, 
+      With this option, higher version of packages are installed, regardless of repo type
+    * Add hostarch information for build configuration
+
 Release notes for gbs 0.24.2
 ==========================
 
