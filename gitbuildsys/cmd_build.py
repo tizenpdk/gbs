@@ -252,10 +252,28 @@ def prepare_depanneur_opts(args):
     if args.rdeps:
         cmd_opts += ['--rdeps']
 
+    if args.kvm:
+        cmd_opts += ['--clean']
+        cmd_opts += ['--vm-type=kvm']
+        cmd_opts += ['--vm-memory=%s' % args.vm_memory]
+        cmd_opts += ['--vm-disk=%s' % args.vm_disk]
+        cmd_opts += ['--vm-swap=%s' % args.vm_swap]
+        cmd_opts += ['--vm-diskfilesystem=%s' % args.vm_diskfilesystem]
+        if not os.path.exists(args.vm_initrd):
+            raise GbsError("Check file to exists vm-initrd")
+        cmd_opts += ['--vm-initrd=%s' % args.vm_initrd]
+        if not os.path.exists(args.vm_kernel):
+            raise GbsError("Check file to exists vm-kernel")
+        cmd_opts += ['--vm-kernel=%s' % args.vm_kernel]
+
     if args.icecream > 0:
         cmd_opts += ['--icecream=%s' % args.icecream]
 
     cmd_opts += ['--threads=%s' % args.threads]
+    if args.kvm:
+        loopdev = len([name for name in os.listdir('/dev') if bool(re.search("loop[0-9]",name))])
+        if not args.threads < loopdev:
+            raise GbsError('When using the kvm, loop device should be larger than the threads option.')
     cmd_opts += ['--packaging-dir=%s' % get_packaging_dir(args)]
 
     return cmd_opts

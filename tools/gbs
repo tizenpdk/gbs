@@ -212,6 +212,20 @@ def build_parser(parser):
                         'build root')
     group.add_argument('--use-higher-deps', action='store_true',
                         help='Which repo provides higher version deps, use it')
+    group.add_argument('--kvm', action='store_true',
+                        help='Launch a kvm machine to build package instead of using chroot')
+    group.add_argument('--vm-memory', type=int, default=4096,
+                        help='The memory size of kvm machine')
+    group.add_argument('--vm-disk', type=int, default=32768,
+                        help='The disk size of kvm machine')
+    group.add_argument('--vm-swap', type=int, default=8192,
+                        help='The swap size of kvm machine')
+    group.add_argument('--vm-diskfilesystem', type=str, default='ext4',
+                        help='The filesystem type of kvm machine')
+    group.add_argument('--vm-initrd', type=str, default='/usr/share/gbs/initrd',
+                        help='The initrd of kvm machine')
+    group.add_argument('--vm-kernel', type=str, default='/usr/share/gbs/vmlinuz',
+                        help='The kernel of kvm machine')
 
     group = parser.add_argument_group('speed up building options')
     group.add_argument('--incremental', action='store_true',

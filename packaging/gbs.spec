@@ -112,7 +112,10 @@ make man
 %{__python} setup.py install --prefix=%{_prefix} --root=%{buildroot}
 
 mkdir -p %{buildroot}/%{_prefix}/share/man/man1
+mkdir -p %{buildroot}/%{_prefix}/share/gbs
 install -m644 docs/gbs.1 %{buildroot}/%{_prefix}/share/man/man1
+install -m644 data/initrd %{buildroot}/%{_prefix}/share/gbs
+install -m644 data/vmlinuz %{buildroot}/%{_prefix}/share/gbs
 
 # Install Jenkins Jobs
 for job_name in $(ls jenkins-jobs/configs)
@@ -131,7 +134,9 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,-)
 %doc README.rst docs/RELEASE_NOTES
+%dir %{_prefix}/share/gbs
 %{_mandir}/man1/*
+%{_prefix}/share/gbs/*
 %{python_sitelib}/gitbuildsys/cmd_build.py*
 %{python_sitelib}/gitbuildsys/cmd_changelog.py*
 %{python_sitelib}/gitbuildsys/cmd_chroot.py*
