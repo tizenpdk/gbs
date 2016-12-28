@@ -1,3 +1,49 @@
+gbs (0.24.4) unstable; urgency=high
+  * upgrade to gbs v0.24.4, which contains the following bug fixing & features:
+    * bug fix:
+      - Fix bugs when using --rdeps and --deps
+      - Fix not deletion of old *src.rpms when using --incremental and --skip-srcrpm.
+      - tizen build-initvm-i586 is not installed in openSUSE 42.1
+      - Fix rpmlint error because of lack of OTHER directory when using 'not export'
+      - Comment out duplicated aarch64 registering
+      - Revert the command of getting packages ID from cache
+      - GitRepository: Fix diff_status() for renames and copies
+      - Adapt git-merge option when git version is greater then 2.9
+      - Disable test_pristine_tar unit test case
+      - Upgrade glib2 version so that tizen package is used instead of upstream package
+      - Fix xdelta upgrade to xdelta3 but left pristine-gz
+
+    * New feature and enhancements added:
+      - Enable kvm build function
+      - Reorder the building dependence
+          (The packages which are been depended most ,build them first.
+           The packages which have no dependence ,build them later.)
+      - Export source code by gbs use threads
+      - Update dependency expansion errors when any of packages have been built
+      - Improve build order for multiple building
+      - Reduce 'mv' instead of 'cp' during rpm packaging
+      - Make some packages not export sources for speed-up
+
+ -- SoonKyu Park <sk7.park@samsung.com>  Sat, 31 Dec 2016 19:30:00 +0900
+
+gbs (0.24.3) unstable; urgency=high
+  * upgrade to gbs v0.24.3, which contains the following bug fixing & features:
+    * bug fix:
+      - fix conflicts in installation gbs onto Ubuntu 16.04
+      - Revert gbs package selection policy - local repo has highest priority
+      - Modify export option to avoid warning message 
+        (Warning: Deprecated option '--git-export-only', please use '--no-build' instead! )
+      - Do not print error string "unknown keyword in config: copylinkedpackages:"
+      - use correct dir for creation of icecream env
+
+    * New feature and enhancements added:
+      - Add --use-higher-deps option, 
+        With this option, higher version of packages are installed, regardless of repo type
+      - Add hostarch information for build configuration
+
+ -- SoonKyu Park <sk7.park@samsung.com>  Wed, 28 Sep 2016 10:00:00 +0800
+
+
 gbs (0.24.2) unstable; urgency=high
   * upgrade to gbs v0.24.2, which contains the following bug fixing & features:
     * bug fix:

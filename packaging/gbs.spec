@@ -6,7 +6,7 @@
 
 Name:       gbs
 Summary:    The command line tools for Tizen package developers
-Version:    0.24.2
+Version:    0.24.4
 %if 0%{?opensuse_bs}
 Release:    1.<CI_CNT>.<B_CNT>
 %else
@@ -20,9 +20,9 @@ Source0:    %{name}_%{version}.tar.gz
 Requires:   python >= 2.6
 Requires:   python-pycurl
 Requires:   sudo
-Requires:   osc >= 0.132.6
-Requires:   tizen-gbp-rpm >= 20140828
-Requires:   depanneur >= 0.15
+Requires:   osc >= 0.155.0
+Requires:   tizen-gbp-rpm >= 20161231
+Requires:   depanneur >= 0.15.3
 
 %if "%{?python_version}" < "2.7"
 Requires:   python-argparse
@@ -46,7 +46,7 @@ Summary:       GBS APIs
 Conflicts:     gbs < 0.15
 Requires:      python
 Requires:      python-pycurl
-Requires:      osc >= 0.132.6
+Requires:      osc >= 0.155.0
 Requires:      git-buildpackage-rpm
 
 %description api
@@ -57,7 +57,7 @@ external software.
 Summary:       GBS export module
 Conflicts:     gbs < 0.15
 Requires:      python
-Requires:      tizen-pristine-tar >= 20160517
+Requires:      tizen-pristine-tar >= 20161231
 Requires:      gbs-api = %{version}-%{release}
 Requires:      git-buildpackage-rpm
 
@@ -112,7 +112,10 @@ make man
 %{__python} setup.py install --prefix=%{_prefix} --root=%{buildroot}
 
 mkdir -p %{buildroot}/%{_prefix}/share/man/man1
+mkdir -p %{buildroot}/%{_prefix}/share/gbs
 install -m644 docs/gbs.1 %{buildroot}/%{_prefix}/share/man/man1
+install -m644 data/initrd %{buildroot}/%{_prefix}/share/gbs
+install -m644 data/vmlinuz %{buildroot}/%{_prefix}/share/gbs
 
 # Install Jenkins Jobs
 for job_name in $(ls jenkins-jobs/configs)
@@ -131,7 +134,9 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,-)
 %doc README.rst docs/RELEASE_NOTES
+%dir %{_prefix}/share/gbs
 %{_mandir}/man1/*
+%{_prefix}/share/gbs/*
 %{python_sitelib}/gitbuildsys/cmd_build.py*
 %{python_sitelib}/gitbuildsys/cmd_changelog.py*
 %{python_sitelib}/gitbuildsys/cmd_chroot.py*

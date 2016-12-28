@@ -7,7 +7,10 @@ override_dh_auto_install:
 	python setup.py install --root=debian/tmp --prefix=/usr
 	make man
 	mkdir -p debian/tmp/usr/share/man/man1
+	mkdir -p debian/tmp/usr/share/gbs
 	install -m644 docs/gbs.1 debian/tmp/usr/share/man/man1
+	install -m644 data/initrd debian/tmp/usr/share/gbs
+	install -m644 data/vmlinuz debian/tmp/usr/share/gbs
 	for job_name in $(shell ls jenkins-jobs/configs); do \
 		mkdir -p debian/tmp/var/lib/jenkins/jobs/$$job_name; \
 		install -m644 jenkins-jobs/configs/$$job_name/config.xml debian/tmp/var/lib/jenkins/jobs/$$job_name; \
