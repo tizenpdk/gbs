@@ -1,3 +1,11 @@
+Release notes for gbs 0.24.5
+==========================
+
+- Release Date: 2017-01
+
+- New feature and enhancements added:
+    * Support 'Recommands:' inside spec file
+
 Release notes for gbs 0.24.4
 ==========================
 

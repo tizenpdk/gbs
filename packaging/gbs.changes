@@ -1,3 +1,8 @@
+* Sat Jan 14 2017 SoonKyu Park <sk7.park@samsung.com> 0.24.5
+  * upgrade to gbs v0.24.5, which contains the following features:
+    * New
+      - Support 'Recommands:' inside spec file
+
 * Sat Dec 31 2016 SoonKyu Park <sk7.park@samsung.com> 0.24.4
   * upgrade to gbs v0.24.4, which contains the following bug fixing & features:
     * bug fix:
