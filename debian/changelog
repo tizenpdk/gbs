@@ -1,3 +1,14 @@
+gbs (0.24.5) unstable; urgency=high
+  * upgrade to gbs v0.24.5, which contains the following features:
+    * New feature and enhancements added:
+      - Support 'Recommands:' inside spec file
+      - Add not export source option
+    * bug fix:
+      - Replace rpm packages inside buildroot mv action to ln
+      - Revert to old version, use rpm command to query pkgid
+      - Fix deps file order error
+ -- SoonKyu Park <sk7.park@samsung.com>  Sat, 14 Jan 2017 19:30:00 +0900
+
 gbs (0.24.4) unstable; urgency=high
   * upgrade to gbs v0.24.4, which contains the following bug fixing & features:
     * bug fix:

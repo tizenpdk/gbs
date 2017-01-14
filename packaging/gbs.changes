@@ -1,3 +1,13 @@
+* Sat Jan 14 2017 SoonKyu Park <sk7.park@samsung.com> 0.24.5
+  * upgrade to gbs v0.24.5, which contains the following features:
+    * New
+      - Support 'Recommands:' inside spec file
+      - Add not export source option
+    * bug fix:
+      - Replace rpm packages inside buildroot mv action to ln
+      - Revert to old version, use rpm command to query pkgid
+      - Fix deps file order error
+
 * Sat Dec 31 2016 SoonKyu Park <sk7.park@samsung.com> 0.24.4
   * upgrade to gbs v0.24.4, which contains the following bug fixing & features:
     * bug fix:
