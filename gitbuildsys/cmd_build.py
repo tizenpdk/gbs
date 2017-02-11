@@ -220,6 +220,8 @@ def prepare_depanneur_opts(args):
         cmd_opts += ['--keep-packs']
     if args.use_higher_deps:
         cmd_opts += ['--use-higher-deps']
+    if args.not_export_source:
+        cmd_opts += ['--not-export-source']
     if args.baselibs:
         cmd_opts += ['--baselibs']
     if args.skip_srcrpm:
