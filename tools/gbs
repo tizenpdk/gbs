@@ -229,6 +229,8 @@ def build_parser(parser):
                         help='The initrd of kvm machine')
     group.add_argument('--vm-kernel', type=str, default='/usr/share/gbs/vmlinuz',
                         help='The kernel of kvm machine')
+    group.add_argument('--not-export-source', action='store_true',
+                        help='Do not export source, use git source to build directly')
 
     group = parser.add_argument_group('speed up building options')
     group.add_argument('--incremental', action='store_true',
