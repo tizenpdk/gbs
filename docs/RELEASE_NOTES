@@ -1,3 +1,16 @@
+Release notes for gbs 0.24.5
+==========================
+
+- Release Date: 2017-02
+
+- New feature and enhancements added:
+    * Support 'Recommands:' inside spec file
+    * Add not export source option
+- bug fix:
+    * Replace rpm packages inside buildroot mv action to ln
+    * Revert to old version, use rpm command to query pkgid
+    * Fix deps file order error
+
 Release notes for gbs 0.24.4
 ==========================
 
