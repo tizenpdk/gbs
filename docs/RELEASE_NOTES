@@ -1,3 +1,14 @@
+Release notes for gbs 0.24.6
+==========================
+
+- Release Date: 2017-04
+
+- New feature and enhancements added:
+    * create new 'rpmbuildstage:' option on OBS
+- bug fix:
+    * Fix not to input sudo password at the end of gbs build
+    * Fix debchange warning
+
 Release notes for gbs 0.24.5
 ==========================
 
