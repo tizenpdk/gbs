@@ -1,3 +1,12 @@
+gbs (0.24.6) unstable; urgency=high
+  * upgrade to gbs v0.24.6, which contains the following features:
+    * New feature and enhancements added:
+      - create new 'rpmbuildstage:' option on OBS
+    * bug fix:
+      - Fix not to input sudo password at the end of gbs build
+      - Fix debchange warning
+ -- SoonKyu Park <sk7.park@samsung.com>  Wed, 5 Apr 2017 19:00:00 +0900
+
 gbs (0.24.5) unstable; urgency=high
   * upgrade to gbs v0.24.5, which contains the following features:
     * New feature and enhancements added:

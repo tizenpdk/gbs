@@ -1,3 +1,11 @@
+* Wed Apr 5 2017 SoonKyu Park <sk7.park@samsung.com> 0.24.6
+  * upgrade to gbs v0.24.5, which contains the following features:
+    * New
+      - create new 'rpmbuildstage:' option on OBS
+    * bug fix:
+      - Fix not to input sudo password at the end of gbs build
+      - Fix debchange warning
+
 * Sat Jan 14 2017 SoonKyu Park <sk7.park@samsung.com> 0.24.5
   * upgrade to gbs v0.24.5, which contains the following features:
     * New
