@@ -1,3 +1,9 @@
+gbs (0.24.7) unstable; urgency=high
+  * upgrade to gbs v0.24.7, which contains the following features:
+    * New feature and enhancements added:
+      - Support use some configuration in package own gbs.conf
+ -- Wang Jun <junbill.wang@samsung.com>  Fri, 28 Apr 2017 19:00:00 +0800
+
 gbs (0.24.6) unstable; urgency=high
   * upgrade to gbs v0.24.6, which contains the following features:
     * New feature and enhancements added:
