@@ -1,3 +1,12 @@
+Release notes for gbs 0.24.8
+==========================
+
+- Release Date: 2017-06
+
+- bug fix:
+    * Fix repomd.xml update problem(DEVT-310)
+    * Add lock for multi spec export
+
 Release notes for gbs 0.24.7
 ==========================
 
