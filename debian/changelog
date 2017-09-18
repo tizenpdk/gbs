@@ -1,3 +1,10 @@
+gbs (0.24.9) unstable; urgency=high
+  * upgrade to gbs v0.24.9, which contains the following features:
+    * bug fix:
+      - Fix build error with --baselibs option
+      - Adapt to forkmanager module to export sources
+ -- Wang Jun <junbill.wang@samsung.com>  Fri, 15 Sep 2017 12:00:00 +0800
+
 gbs (0.24.8) unstable; urgency=high
   * upgrade to gbs v0.24.8, which contains the following features:
     * bug fix:

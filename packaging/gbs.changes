@@ -1,3 +1,9 @@
+* Fri Sep 15 2017 Wang Jun <junbill.wang@samsung.com> 0.24.9
+  * upgrade to gbs v0.24.9, which contains the following features:
+    * bug fix
+      - Fix build error with --baselibs option
+      - Adapt to forkmanager module to export sources
+
 * Fri Jun 30 2017 Zhang Yang <y0169.zhang@samsung.com> 0.24.8
   * upgrade to gbs v0.24.8, which contains the following features:
     * bug fix:
