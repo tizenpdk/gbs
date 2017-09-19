@@ -3,19 +3,26 @@ Release notes for gbs 0.24.9
 
 - Release Date: 2017-09
 
-- bug fix:
-    * Fix build error with --baselibs option
-    * Adapt to forkmanager module to export sources
-    * Fix error when using fail_fast
+- Bug fix:
+    * Fix build error with --baselibs option that rpm files which has to be created by
+      --baselibs option are not created
+    * Adapt to forkmanager module for export sources to avoid full build export stuck problem
+    * Fix error when using fail_fast(which not consider gbs has error status)
+- Update dependencies:
+    * depanneur >= 0.15.8
 
 Release notes for gbs 0.24.8
 ==========================
 
 - Release Date: 2017-06
 
-- bug fix:
-    * Fix repomd.xml update problem(DEVT-310)
-    * Add lock for multi spec export
+- Bug fix:
+    * Fix repomd.xml update problem that will missing cacheing packages
+      with 'latest' repos(DEVT-310)
+    * Add lock for multi spec export to solve multi-threads export conflict problem
+- Update dependencies:
+    * build >= >= 20160629-tizen20170630
+    * depanneur >= 0.15.7
 
 Release notes for gbs 0.24.7
 ==========================
@@ -23,7 +30,13 @@ Release notes for gbs 0.24.7
 - Release Date: 2017-04
 
 - New feature and enhancements added:
-    * Support use some configuration in package own gbs.conf
+    * Support use some configuration in package own gbs.conf which  including
+      'packaging_branch', 'upstream_branch', 'upstream_tag','packaging_dir' sections
+      to make gbs build successfully
+- Update dependencies:
+    * build >= 20150115-tizen20170428
+    * depanneur >= 0.15.6
+
 
 Release notes for gbs 0.24.6
 ==========================
@@ -33,8 +46,9 @@ Release notes for gbs 0.24.6
 - New feature and enhancements added:
     * create new 'rpmbuildstage:' option on OBS
 - bug fix:
-    * Fix not to input sudo password at the end of gbs build
-    * Fix debchange warning
+    * Fix not to input sudo password at the end of gbs build which
+      used sudo ln (hard link) to create rpm packages
+    * Fix debchange warning ,remove these warning messages from the gbs' output stream
 
 Release notes for gbs 0.24.5
 ==========================
@@ -42,11 +56,13 @@ Release notes for gbs 0.24.5
 - Release Date: 2017-02
 
 - New feature and enhancements added:
-    * Support 'Recommands:' inside spec file
-    * Add not export source option
+    * Support 'Recommands:' inside spec file, gbs will select the 'Recommends' package when there are
+      multiple packages which have the same provides to meet the dependency
+    * Add not export source option, with this option gbs build will speed up because of
+      skipping export source stage which could cost many time
 - bug fix:
-    * Replace rpm packages inside buildroot mv action to ln
-    * Revert to old version, use rpm command to query pkgid
+    * Replace rpm packages inside buildroot mv action to ln, leave rpm packages inside buildroot for use
+    * Revert to old version, replace perl script to rpm command to query pkgid for speed up
     * Fix deps file order error
 
 Release notes for gbs 0.24.4
