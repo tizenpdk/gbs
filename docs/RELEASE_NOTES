@@ -1,3 +1,22 @@
+Release notes for gbs 0.24.10
+==========================
+
+- Release Date: 2017-10
+
+- Bug fix:
+    * Prevent shell interpolation of gbs configuration variables,
+      when using special variable such like “upstream_tag = v${upstreamversion} ”
+      which gbs can't get upstreamversion well
+    * Fix build error tizen:2.4 not install cumulate packages
+    * Fix build error package rpm-4.9.1-4.3.1.10.armv7l is already installed,
+      can not reuse compile enviroment
+    * Add Epoch to rpm query command, some packages have 'Epoch' definition
+      which will cause dependency packages missing,
+      keep same of identifier of packages in build.
+- Update dependencies:
+    * build >= 20160629-tizen20171013
+    * depanneur >= 0.15.9
+
 Release notes for gbs 0.24.9
 ==========================
 

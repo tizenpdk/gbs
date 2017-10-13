@@ -1,3 +1,17 @@
+gbs (0.24.10) unstable; urgency=high
+  * upgrade to gbs v0.24.10, which contains the following features:
+    * bug fix:
+      - Prevent shell interpolation of gbs configuration variables,
+        when using special variable such like “upstream_tag = v${upstreamversion} ”
+        which gbs can't get upstreamversion well
+      - Fix build error tizen:2.4 not install cumulate packages
+      - Fix build error package rpm-4.9.1-4.3.1.10.armv7l is already installed,
+        can not reuse compile enviroment
+      - Add Epoch to rpm query command, some packages have 'Epoch' definition
+        which will cause dependency packages missing,
+        keep same of identifier of packages in build.
+ -- Ren Jingui <jingui.ren@samsung.com>  Fri, 13 Oct 2017 16:40:00 +0800
+
 gbs (0.24.9) unstable; urgency=high
   * upgrade to gbs v0.24.9, which contains the following features:
     * bug fix:
